@@ -25,3 +25,11 @@ python-dotenv
 # Machine Learning Utilities
 numpy
 scikit-learn
+
+# For UI
+streamlit
+grandalf
+notebook
+
+langchain-community
+pypdf
