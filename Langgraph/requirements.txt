@@ -5,3 +5,4 @@ dotenv
 notebook
 streamlit
 langchain-groq
+langgraph-checkpoint-sqlite
