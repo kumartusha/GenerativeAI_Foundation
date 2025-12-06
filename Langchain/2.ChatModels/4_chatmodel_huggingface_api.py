@@ -10,7 +10,7 @@ llm = HuggingFaceEndpoint(
     repo_id="meta-llama/Llama-3.2-1B-Instruct",
     # repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     task="conversational",   # ✅ must match model’s supported task
-    huggingfacehub_api_token=os.getenv("HUGGING_FACE_TOKEN")
+    huggingfacehub_api_token=os.getenv("HUGGING_FACE_TOKEN"),
 )
 
 model = ChatHuggingFace(llm=llm)

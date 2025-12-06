@@ -23,5 +23,10 @@ Begin your explanation now:
     validate_template=True
 )
 
+
+prompt = template.format(paper_input="ICT Concepts", style_input="Leyman", length_input="under 100 words")
+
+print(prompt)
+
 # Save the template to a file
 template.save("template.json")
