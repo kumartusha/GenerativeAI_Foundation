@@ -3,10 +3,13 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from typing import Literal, Optional
+from langchain_groq import ChatGroq
+import os
 
 load_dotenv()
 
-model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+# model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+model = ChatGroq(model="openai/gpt-oss-120b", api_key=os.getenv("GROK_API_KEY"))
 
 # Pydantic Class
 class Review(BaseModel):

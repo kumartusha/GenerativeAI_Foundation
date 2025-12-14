@@ -1,10 +1,13 @@
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from typing import TypedDict
+from langchain_groq import ChatGroq
+import os
 
 load_dotenv()
 
-model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+# model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+model = ChatGroq(model="openai/gpt-oss-120b", api_key=os.getenv("GROK_API_KEY"))
 
 # Schema of the Data
 class Review(TypedDict):

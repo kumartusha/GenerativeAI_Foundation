@@ -26,11 +26,15 @@
 # 2.  This is the second example of the with_structured_output (Complex Pattern).
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 from typing import TypedDict, Annotated, Optional, Literal
+from pydantic import Field
+import os
 
 load_dotenv()
 
-model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+# model = ChatOpenAI(model="gpt-4.1-2025-04-14")
+model = ChatGroq(model="openai/gpt-oss-120b", api_key=os.getenv("GROK_API_KEY"))
 
 # schema
 class Review(TypedDict):
@@ -57,7 +61,7 @@ Stunning 200MP camera with incredible zoom capabilities
 Long battery life with fast charging
 S-Pen support is unique and useful
                                  
-Review by Nitish Singh
+Review by Tushar Kumar
 """)
 
 print(result)

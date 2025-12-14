@@ -2,8 +2,10 @@ from langchain_huggingface import HuggingFaceEndpoint
 from langchain_huggingface import ChatHuggingFace
 from dotenv import load_dotenv
 import os
-from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.output_parsers import JsonOutputParser, CommaSeparatedListOutputParser, StrOutputParser, ListOutputParser, PydanticOutputParser
 from langchain_core.prompts import PromptTemplate
+from langchain_groq import ChatGroq
+import os
 
 load_dotenv()
 
@@ -15,12 +17,15 @@ llm = HuggingFaceEndpoint(
     huggingfacehub_api_token=os.getenv("HUGGING_FACE_TOKEN")
 )
 
-model = ChatHuggingFace(llm=llm)
+# model = ChatHuggingFace(llm=llm)
+model = ChatGroq(model="openai/gpt-oss-120b", api_key=os.getenv("GROK_API_KEY"))
 
-parser = JsonOutputParser()
+# parser = JsonOutputParser()
+parser = CommaSeparatedListOutputParser()
 
 template = PromptTemplate(
     template="Give me 5 facts about {topic} \n {format_instruction}",
+    # template="Give me 5 facts about {topic}",
     input_variables=["topic"],
     # it will add the Return a Json Object in the prompt instead of the format_instruction.
     partial_variables={'format_instruction': parser.get_format_instructions()}

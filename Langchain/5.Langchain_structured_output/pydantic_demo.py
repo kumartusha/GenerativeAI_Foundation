@@ -4,7 +4,7 @@ from typing import Optional
 
 class Student(BaseModel):
 
-    name: str
+    # name: str
     name: str = 'nitish'               # Default values
     age: Optional[int] = None          # Set the None value if the value is not passing.
     # email: EmailStr                    # Through error if the syntax is wrong.
@@ -14,7 +14,7 @@ new_student = {"name": "nitish"}       # Working Fine as the datatype is     exp
 # new_student = {"name": 32}             # give error bcoz in pydantic uses for the validation.
 # new_student = {"age": '32'}            # it is smart it will automatically convert this string into the integer.( Smart Enough )
 # new_student = {"name": "nitish", 'email': 'tushar.kumar@gmail.com', 'cgpa': 12}
-new_student = {"name": "nitish", 'cgpa': 3, 'age': 20}
+new_student = {"name": "Tushar", 'cgpa': 3, 'age': 20}
 
 student = Student(**new_student)
 
