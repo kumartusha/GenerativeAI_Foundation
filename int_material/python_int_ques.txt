@@ -1,0 +1,37 @@
+Questions:
+Q1: Given two arrays, write a python function to return the intersection of the two? For example, X = [1,5,9,0] and Y = [3,0,2,9] it should return [9,0]
+
+Q2: Given an array, find all the duplicates in this array? For example: input: [1,2,3,1,3,6,5] output: [1,3]
+
+Q3: Given an integer array, return the maximum product of any three numbers in the array?
+
+Q4: Given an integer array, find the sum of the largest contiguous subarray within the array. For example, given the array A = [0,-1,-5,-2,3,14] it should return 17 because of [3,14]. Note that if all the elements are negative it should return zero.
+
+Q5: Define tuples and lists in Python What are the major differences between them?
+
+Q6: Compute the Euclidean Distance Between Two Series?
+
+Q7: Given an integer n and an integer K, output a list of all of the combination of k numbers chosen from 1 to n. For example, if n=3 and k=2, return [1,2][1,3],[2,3]
+
+Q8: Write a function to generate N samples from a normal distribution and plot them on the histogram
+
+Q9: What is the difference between apply and applymap function in pandas?
+
+Q10: Given a string, return the first recurring character in it, or “None” if there is no recurring character. Example: input = "pythoninterviewquestion" , output = "n"
+
+Q11: Given a positive integer X return an integer that is a factorial of X. If a negative integer is provided, return -1. Implement the solution by using a recursive function.
+
+Q12: Given an m-by-n matrix with positive integers, determine the length of the longest path of increasing within the matrix. For example, consider the input matrix:
+
+  [ 1 2 3 ]
+  
+  [ 4 5 6 ]
+  
+  [ 7 8 9 ]        
+  
+  The answer should be 5 since the longest path would be 1-2-5-6-9]()
+Q13: 𝐄𝐱𝐩𝐥𝐚𝐢𝐧 𝐰𝐡𝐚𝐭 𝐅𝐥𝐚𝐬𝐤 𝐢𝐬 𝐚𝐧𝐝 𝐢𝐭𝐬 𝐛𝐞𝐧𝐞𝐟𝐢𝐭𝐬
+
+Q14: 𝐖𝐡𝐚𝐭 𝐢𝐬 𝐭𝐡𝐞 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐜𝐞 𝐛𝐞𝐭𝐰𝐞𝐞𝐧 𝐥𝐢𝐬𝐭𝐬, 𝐚𝐫𝐫𝐚𝐲𝐬, 𝐚𝐧𝐝 𝐬𝐞𝐭𝐬 𝐢𝐧 𝐏𝐲𝐭𝐡𝐨𝐧, 𝐚𝐧𝐝 𝐰𝐡𝐞𝐧 𝐲𝐨𝐮 𝐬𝐡𝐨𝐮𝐥𝐝 𝐮𝐬𝐞 𝐞𝐚𝐜𝐡 𝐨𝐟 𝐭𝐡𝐞𝐦?
+
+Q15: What are some common ways to handle missing data in Python, and which method do you prefer and why?

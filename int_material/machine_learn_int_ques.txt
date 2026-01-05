@@ -1,0 +1,36 @@
+Q1: Mention three ways to make your model robust to outliers?
+Q2: Describe the motivation behind random forests and mention two reasons why they are better than individual decision trees?
+Q3: What are the differences and similarities between gradient boosting and random forest? and what are the advantages and disadvantages of each when compared to each other?
+Q4: What are L1 and L2 regularization? What are the differences between the two?
+Q5: What are the Bias and Variance in a Machine Learning Model and explain the bias-variance trade-off?
+Q6: Mention three ways to handle missing or corrupted data in a dataset?
+Q7: Explain briefly the logistic regression model and state an example of when you have used it recently?
+Q8: Explain briefly batch gradient descent, stochastic gradient descent, and mini-batch gradient descent. and what are the pros and cons for each of them?
+Q9: Explain what is information gain and entropy in the context of decision trees?
+Q10: Explain the linear regression model and discuss its assumption?
+Q11: Explain briefly the K-Means clustering and how can we find the best value of K?
+Q12: Define Precision, recall, and F1 and discuss the trade-off between them?
+Q13: What are the differences between a model that minimizes squared error and the one that minimizes the absolute error? and in which cases each error metric would be more appropriate?
+Q14: Define and compare parametric and non-parametric models and give two examples for each of them?
+Q15: Explain the kernel trick in SVM and why we use it and how to choose what kernel to use?
+Q16: Define the cross-validation process and the motivation behind using it?
+Q17: You are building a binary classifier and you found that the data is imbalanced, what should you do to handle this situation?
+Q18: You are working on a clustering problem, what are different evaluation metrics that can be used, and how to choose between them?
+Q19: What is the ROC curve and when should you use it?
+Q20: What is the difference between hard and soft voting classifiers in the context of ensemble learners?
+Q21: What is boosting in the context of ensemble learners discuss two famous boosting methods
+Q22: How can you evaluate the performance of a dimensionality reduction algorithm on your dataset?
+Q23: Define the curse of dimensionality and how to solve it.
+Q24: In what cases would you use vanilla PCA, Incremental PCA, Randomized PCA, or Kernel PCA?
+Q25: Discuss two clustering algorithms that can scale to large datasets
+Q26: Do you need to scale your data if you will be using the SVM classifier and discuss your answer
+Q27: What are Loss Functions and Cost Functions? Explain the key Difference Between them.
+Q28: What is the importance of batch in machine learning and explain some batch depend on gradient descent algorithm?
+Q29: What are the different methods to split a tree in a decision tree algorithm?
+Q30: Why boosting is a more stable algorithm as compared to other ensemble algorithms?
+Q31: What is active learning and discuss one strategy of it?
+Q32: What are the different approaches to implementing recommendation systems?
+Q33: What are the evaluation metrics that can be used for multi-label classification?
+Q34: What is the difference between concept and data drift and how to overcome each of them?
+Q35: Can you explain the ARIMA model and its components?
+Q36: What are the assumptions made by the ARIMA model?
