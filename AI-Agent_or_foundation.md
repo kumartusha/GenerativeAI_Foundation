@@ -34,7 +34,7 @@ With one list. Zero confusion. And no fluff
 
 5. AI Agents for Beginners: https://lnkd.in/dHvTmJnv
 
-6. GenAI Agentshttps://lnkd.in/dEt72MEy
+6. GenAI Agents:- https://lnkd.in/dEt72MEy
 
 7. Made with ML: https://lnkd.in/d2dMACMj
 

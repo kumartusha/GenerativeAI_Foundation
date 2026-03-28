@@ -252,3 +252,28 @@ ML: Surprise/LightFM (recommendation), RLlib
 App: Next.js + FastAPI backend
 
 Deployment: Docker, GCP
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************************************
+Built an AI-Powered Incident Detection & Auto-Remediation System to explore how production failures can be handled more intelligently.
+
+When something fails in production, this system:
+1. Detects it using Prometheus + Grafana
+2. Collects logs, API payload, and recent commit history
+3. Uses an LLM to perform root cause analysis
+4. Identifies whether the issue is due to a recent commit or a deeper logical flaw in development
+5. Suggests code-level fixes
+6. Automatically creates a detailed GitHub issue
+7. Sends an email notification once the issue is created
+8. Displays everything in a React dashboard
+
+Built this to reduce MTTR (Mean Time To Resolution) by automating the understanding phase of incidents. Instead of only blaming the latest commit, it analyzes logs, state, and version history to suggest the real root cause using GPT-4o.
+
+GitHub: https://lnkd.in/gc3c5XwW

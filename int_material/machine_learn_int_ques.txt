@@ -34,3 +34,32 @@ Q33: What are the evaluation metrics that can be used for multi-label classifica
 Q34: What is the difference between concept and data drift and how to overcome each of them?
 Q35: Can you explain the ARIMA model and its components?
 Q36: What are the assumptions made by the ARIMA model?
+
+
+
+*************************** QUESTIONS ASKS TO FRESHERS **************************
+🔹 Difference between Agentic AI vs Generative AI ?
+🔹 Difference between Machine Learning and Deep Learning ?
+🔹 What is Fine-tuning?
+🔹 How does a sentence convert into tokens?
+🔹 What are LLMs (Large Language Models)?
+🔹 What is Hallucination in AI?
+🔹 What is Data Preprocessing?
+🔹 How do you perform Feature Engineering?
+🔹 Explain the Self-Attention Mechanism ?
+🔹 What is a Transformer? Explain its steps ?
+🔹 Importance of Positional Encoding
+🔹 Real-time example of an AI Agent
+🔹 Questions on Python libraries (Pandas, NumPy, Matplotlib)
+🔹 What is an API? What is FastAPI?
+🔹 Types of Machine Learning algorithms with examples
+🔹 Types of Neural Networks
+🔹 Importance of Prompt Engineering
+🔹 Key components of a good prompt
+🔹 Basics of Vector Databases
+🔹 How to evaluate model performance
+🔹 What is a Context Window in LLMs?
+🔹 What is Temperature in LLMs?
+🔹 Discussion on my projects
+🔹 Asked some questions related to Git and Github.
+🔹 Coding questions on Lists, Arrays, and SQL
