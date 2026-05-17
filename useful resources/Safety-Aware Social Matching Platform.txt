@@ -1,0 +1,228 @@
+┌────────────────────────────────────────────────────────────────────────┐
+│                               CLIENT LAYER                              │
+│                                                                          │
+│  Web / Mobile App                                                        │
+│  ────────────────────────────────────────────────────────────────────  │
+│  • Sign up / Login                                                       │
+│  • Profile setup (interests, preferences)                                │
+│  • Match browsing                                                        │
+│  • 1–1 / Group chat                                                       │
+│  • Report / Block / Feedback                                             │
+│                                                                          │
+└───────────────┬──────────────────────────────────────────────────────────┘
+                │ HTTPS (REST) / WebSocket
+                ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                             API GATEWAY                                 │
+│                              FastAPI                                    │
+│                                                                          │
+│  • JWT Authentication                                                    │
+│  • Input validation (Pydantic)                                           │
+│  • Rate limiting (Redis)                                                 │
+│  • Request logging                                                      │
+│  • Routes traffic to backend services                                    │
+│                                                                          │
+└───────────────┬──────────────────────────────────────────────────────────┘
+                │
+ ┌──────────────┴───────────────────────────────────────────────┐
+ │                                                              │
+ ▼                                                              ▼
+┌───────────────────────────────────────┐     ┌───────────────────────────────────────┐
+│        USER PROFILE SERVICE            │     │             CHAT SERVICE               │
+│                                       │     │                                       │
+│  • Create / update profile             │     │  • WebSocket connections              │
+│  • Store interests & preferences       │     │  • Message delivery                   │
+│  • Age-group enforcement               │     │  • Typing / read indicators           │
+│  • Privacy settings                    │     │  • Message rate limiting              │
+│                                       │     │                                       │
+│  DB: PostgreSQL                        │     │  Cache: Redis                         │
+└───────────────┬───────────────────────┘     └───────────────┬───────────────────────┘
+                │                                               │
+                ▼                                               ▼
+┌───────────────────────────────────────┐     ┌───────────────────────────────────────┐
+│   MATCHING & RECOMMENDATION SERVICE    │     │      SAFETY & MODERATION PIPELINE      │
+│                                       │     │              (ML + Rules)              │
+│  1. Feature Extraction                 │     │                                       │
+│     • Interests text                   │     │  Step 1: Rule-based filter             │
+│     • Preferences                      │     │   • Keywords                           │
+│     • Interaction style                │     │   • Regex patterns                     │
+│                                       │     │                                       │
+│  2. Embedding Generation               │     │  Step 2: ML Classifiers                │
+│     • Sentence-BERT                    │     │   • Toxicity detection                 │
+│                                       │     │   • Manipulation patterns              │
+│  3. Similarity Search                  │     │                                       │
+│     • Cosine similarity                │     │  Step 3: Risk Scoring                  │
+│     • Top-K retrieval                  │     │   • Weighted model outputs             │
+│                                       │     │                                       │
+│  4. Re-ranking                         │     │  Step 4: Action Engine                 │
+│     • Comfort-level similarity         │     │   • Allow                              │
+│     • Behavior signals                 │     │   • Warn                               │
+│                                       │     │   • Block + Flag                       │
+│  5. Explainability                     │     │                                       │
+│     • “Matched due to shared interests”│     │                                       │
+│                                       │     │  Output → Chat / Moderator Dashboard   │
+└───────────────┬───────────────────────┘     └───────────────┬───────────────────────┘
+                │                                               │
+                ▼                                               ▼
+┌───────────────────────────────────────┐     ┌───────────────────────────────────────┐
+│      ANALYTICS & FEEDBACK SERVICE      │     │        MODERATOR DASHBOARD             │
+│                                       │     │      (Human-in-the-Loop)                │
+│  • Match acceptance rate               │     │                                       │
+│  • Chat duration                       │     │  • Review flagged messages             │
+│  • Drop-off points                     │     │  • Override ML decisions               │
+│  • Safety incident tracking            │     │  • User actions (warn / suspend)       │
+│                                       │     │  • Label data for retraining            │
+│  Used for:                             │     │                                       │
+│  • Model evaluation                    │     │                                       │
+│  • Threshold tuning                    │     │                                       │
+└───────────────┬───────────────────────┘     └───────────────┬───────────────────────┘
+                │                                               │
+                └───────────────────────┬───────────────────────┘
+                                        ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                                DATA LAYER                               │
+│                                                                          │
+│  PostgreSQL                                                              │
+│  • Users                                                                 │
+│  • Profiles                                                              │
+│  • Matches                                                               │
+│  • Chat metadata (no raw logs long-term)                                 │
+│                                                                          │
+│  Redis                                                                   │
+│  • Rate limits                                                           │
+│  • Temporary safety flags                                                │
+│                                                                          │
+│  Model Store (S3 / GCS)                                                   │
+│  • Versioned ML models                                                   │
+│  • Rollback support                                                      │
+│                                                                          │
+└────────────────────────────────────────────────────────────────────────┘
+
+
+
+******************** New Chatbot High Level Design *************************.
+┌─────────────────────────────────────────────────────────────┐
+│                         USER                                │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                CHAT WIDGET (Website)                         │
+│        Welcome + Quick Options + Free Text                  │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                INPUT PRE-PROCESSOR                           │
+│  - Text clean & normalize                                    │
+│  - Spell correction                                          │
+│  - Language detection                                        │
+│  - Abuse / noise filter                                      │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                INTENT CLASSIFIER                             │
+│      (Intent + Confidence Score)                             │
+└───────────────┬───────────────┬─────────────────────────────┘
+                │               │
+      Confidence ≥ 80%   Confidence 50–79%          < 50%
+                │               │                   │
+                ▼               ▼                   ▼
+┌───────────────────┐   ┌───────────────────┐  ┌────────────────┐
+│ ENTITY EXTRACTOR  │   │ CLARIFICATION UI  │  │ FALLBACK LEVEL-1│
+│ (brand, budget,  │   │ "Did you mean…?"  │  │ Generic help    │
+│ usage, location) │   └─────────┬─────────┘  └────────┬───────┘
+└─────────┬─────────┘             │                      │
+          │                        ▼                      ▼
+          │                 User Confirms         Still unclear?
+          │                        │                      │
+          │                        ▼                      ▼
+          │                 ENTITY EXTRACTOR      FALLBACK LEVEL-2
+          │                                            │
+          ▼                                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                DIALOGUE MANAGER (STATE ENGINE)               │
+│  - Track conversation state                                  │
+│  - Check missing / conflicting entities                      │
+│  - Prevent loops                                             │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+        Are all required entities present?
+                │
+        ┌───────┴────────┐
+        │                │
+       YES              NO
+        │                │
+        ▼                ▼
+┌───────────────────┐   ┌─────────────────────────────────────┐
+│ BUSINESS LOGIC    │   │ ASK FOLLOW-UP QUESTION                │
+│ - Vehicle search  │   │ (budget / usage / city / model)      │
+│ - Compare         │   └─────────┬───────────────────────────┘
+│ - Price / EMI     │             │
+│ - Dealer lookup   │             ▼
+└─────────┬─────────┘      User provides info
+          │                        │
+          ▼                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│                RESPONSE GENERATOR                             │
+│  - Text                                                     │
+│  - Cards (vehicles / dealers)                               │
+│  - Tables (comparison)                                      │
+│  - CTA buttons                                              │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                INTENT-SPECIFIC PATHS                         │
+│                                                             │
+│  🔍 Search Truck → Vehicle Cards                             │
+│  ⚖️ Compare → Comparison Table                               │
+│  💰 Price/EMI → Price + EMI Calc                             │
+│  📍 Dealer → Dealer List                                    │
+│  📞 Lead → Contact Form                                     │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                CALL-TO-ACTION (CTA)                          │
+│  - Compare                                                   │
+│  - Check EMI                                                 │
+│  - Find Dealer                                               │
+│  - Request Callback                                          │
+│  - Talk to Expert                                            │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+        User chooses CTA?
+                │
+        ┌───────┴────────┐
+        │                │
+       YES              NO
+        │                │
+        ▼                ▼
+┌───────────────────┐   ┌─────────────────────────────────────┐
+│ LEAD CAPTURE      │   │ EXIT FLOW                             │
+│ - Name            │   │ "Glad I could help!"                  │
+│ - Phone           │   │ Session timeout / close               │
+└─────────┬─────────┘   └─────────────────────────────────────┘
+          │
+          ▼
+┌─────────────────────────────────────────────────────────────┐
+│                HUMAN ESCALATION (If needed)                 │
+│  - Live agent                                                │
+│  - Callback ticket                                          │
+└───────────────┬─────────────────────────────────────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                ANALYTICS & LOGGING                           │
+│  - Intent accuracy                                           │
+│  - Fallback rate                                             │
+│  - Conversion                                                │
+│  - Drop-off points                                           │
+└─────────────────────────────────────────────────────────────┘
+
+
+
+
+

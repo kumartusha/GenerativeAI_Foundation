@@ -1,0 +1,842 @@
+1. Problem Statement in detail. #############################################################
+
+Content & Design Engine
+Overview
+
+Every event generates hundreds of photos and videos. Today, these are manually filtered, edited, resized, and written into content.
+
+Your task is to automate this entire workflow.
+
+Input
+
+2 event datasets of 50–150 mixed images & videos each (data will be provided)
+Mixed quality, formats, and orientations
+Your system must process both without manual intervention or reconfiguration
+Expected Output
+
+1. LinkedIn Post
+
+4–6 image collage
+Professional, context-aware copy
+Must feel written by someone who attended the event
+2. Instagram Post / Reel
+
+Carousel or 30–60 sec video
+Visually driven storytelling
+Caption must be distinct from LinkedIn
+3. Instagram Stories
+
+3–4 vertical frames
+Sequential narrative (not standalone slides)
+Proper adaptation of horizontal assets
+4. Case Study Draft- 
+
+Must follow the provided template
+Structured, post-ready output
+Design Requirement
+
+Automatically adapt assets into required formats (square, vertical, landscape)
+Maintain layout consistency and visual hierarchy
+Flag low-confidence outputs instead of forcing incorrect ones
+Selection Logic
+
+Your system must:
+
+Decide which assets to use
+Define clear selection criteria
+Explain why each asset was selected
+﻿
+
+Evaluation Criteria
+
+Output quality (usable without major edits)
+Platform distinctiveness (no duplicated copy)
+Design adaptation quality
+System robustness across datasets
+Clarity of architecture and logic
+Ability to function as a ready solution, where new data can be input in real time and outputs are generated without breakdown
+
+
+2. Problem Statement in detail ################################################################
+
+Market Intelligence Engine
+Overview
+
+Before engaging any client, deep research is required across the brand, its market, competitors, and past activity. This is typically followed by identifying the right people to reach out to and initiating conversations.
+
+Your task is to build a single system that automates this end-to-end workflow.
+
+Input
+
+Company name
+One-line category
+Your system must derive everything else.
+
+Expected Output
+
+1. Company Overview
+
+Business model, scale, positioning
+2. Market Position
+
+Brand perception
+Recent shifts
+3. Competitor Mapping
+
+3–5 competitors
+Their current brand and marketing activity
+Relative strengths and gaps
+4. Brand Activity (Last 12–24 Months)
+
+Campaigns, launches, communications
+5. Experiential & Events Footprint
+
+Events, activations, launches
+Format, scale, and outcomes 
+6. Strategic Watchouts
+
+Key risks, tensions, or blind spots
+Insights relevant before engaging the brand
+7. Decision-Maker Identification
+
+Relevant stakeholders (e.g., marketing heads, brand managers, CXOs)
+Role relevance clearly defined
+8. Contact Intelligence
+
+Contact details:
+Email IDs
+Phone numbers 
+LinkedIn profiles
+9. Personalized Outreach
+
+A tailored LinkedIn message
+A tailored email draft
+Communication must reflect:
+Brand context
+Recent activity
+Relevant opportunity angle
+10. Outreach Tracking Logic
+
+Mechanism to track engagement (e.g., email open tracking, response tracking logic)
+System should demonstrate how effectiveness would be measured
+System Requirements
+
+Must integrate research, lead identification, and outreach into a single coherent workflow
+Must rely only on available/public data and avoid fabrication
+Must produce outputs that are actionable, not just informative
+Test Conditions
+
+3 companies across different industries. ####################################################################
+System must work across all without reconfiguration
+Evaluation Criteria
+
+Depth and accuracy of intelligence
+Relevance and quality of identified decision-makers
+Quality and personalization of outreach
+Cross-industry adaptability
+Clarity of system architecture
+Ability to function as a ready solution, tested live with new company inputs
+
+
+3. Accessibility Companion Agent. ####################################################################
+Challenge:
+
+Create an agent that converts content formats and assists users with disabilities in real-time.
+
+﻿Use GitHub Copilot to:
+
+Build vision & speech pipelines
+Generate assistive UI
+Integrate accessibility APIs
+Optimize real-time systems
+
+
+4. AI Study Companion for Competitive Exams. ####################################################################
+Challenge:
+
+Build an agent that personalizes learning, generates tests, and adapts based on performance.
+
+﻿Use GitHub Copilot to:
+
+Build quiz engines
+Generate evaluation logic
+Create adaptive systems
+Develop tracking dashboards
+
+
+5. AI-Powered Public Healthcare Assistant. ####################################################################
+Challenge: 
+
+Build an Agentic AI system that interacts in multiple languages, performs symptom-based triage, suggests next steps, locates healthcare facilities, and maintains patient history.
+
+﻿Use GitHub Copilot to:
+
+Generate chatbot workflows
+Build triage logic systems
+Integrate healthcare & maps APIs
+Enable multilingual capabilities
+
+
+6. Cyber Safety & Fraud Detection Agent. ####################################################################
+Challenge:
+
+Build a system that identifies suspicious messages and provides preventive guidance.
+
+﻿Use GitHub Copilot to:
+
+Build anomaly detection systems
+Generate classifiers
+Create browser/email tools
+Develop alert systems
+
+
+7. Mental Wellness Support Agent. ####################################################################
+Challenge:
+
+Create an agent that detects emotional patterns and provides coping strategies with safe escalation.
+
+﻿Use GitHub Copilot to:
+
+Build conversational AI
+Generate sentiment models
+Create journaling systems
+Develop escalation workflows
+
+
+8. Smart Agriculture Advisory Agent. ####################################################################
+Challenge:
+
+Create an agent that provides crop recommendations, irrigation planning, pest detection insights, and market timing advice.
+
+﻿Use GitHub Copilot to:
+
+Build data pipelines
+Generate prediction models
+Create dashboards
+Integrate weather/market APIs
+
+9. Challenges.  ####################################################################
+
+Campus Buddy Chatbot (RAG Lite)
+Build a chatbot that answers college FAQs (departments, clubs, library rules, canteen timings, bus routes) using a small dataset (PDF/CSV). Must-have: upload docs → ask questions → show the source snippet used.
+
+
+
+Accessibility Helper for Notes & PDFs
+Develop a solution that converts notes and PDFs into accessible formats (audio, summaries, simplified text). The main challenge is accurate content extraction while preserving meaning and structure.
+
+
+
+Anti-Procrastination Coach – Image Prompt
+Create a tool that detects procrastination patterns and nudges users with personalized motivation techniques. The difficulty lies in keeping users engaged without being intrusive.
+
+
+
+Explain Like I’m New” Study Companion
+An assistant that explains any concept (e.g., pointers, Ohm’s law, vectors) in 3 levels: beginner, exam-ready, and real-life analogy. Must-have: user chooses level + gets examples + 3 practice questions
+
+
+
+Mini Code Mentor (Debug + Explain)
+A web app where a student pastes code and the assistant suggests fixes and explains errors simply. Must-have: handles at least 2 languages (e.g., Python + C) + explains in plain English.
+
+
+
+Notes-to-Quiz Generator
+Create a tool that converts class notes (text/PDF) into MCQs + short answers with difficulty levels. Must-have: at least 20 questions output + answer key + topic tags.
+
+
+
+Placement Prep Starter (1st Year Edition)
+Assistant that creates a skill roadmap (coding basics, Git, LinkedIn, communication) over 8 weeks. Must-have: weekly plan + resources list + progress checklist.
+
+
+
+Resume Starter for Freshers
+A resume builder that takes basic details and generates a one-page resume for a first-year student (projects, skills, clubs). Must-have: ATS-friendly formatting + generates 1 LinkedIn “About” section.
+
+
+
+Smart Timetable & Reminder Assistant – Image Prompt
+Design a system that adapts to changing schedules, prioritizes urgent tasks, and sends smart reminders without overwhelming users. The challenge is balancing automation with user control
+
+
+
+Student Query Triage Bot (Helpdesk)
+Build a chatbot that categorizes and responds to student queries efficiently, escalating complex issues when needed. The challenge is understanding diverse questions and providing accurate, timely support.
+
+
+10. AI for Social Impact. ####################################################################
+Example Projects
+AI for Social Impact
+
+Title: Multilingual Scheme Chatbot for myScheme Users
+
+Problem: Citizens often don’t know which government schemes they qualify for due to
+
+language barriers and complex portals.
+
+Project: Build a WhatsApp/Telegram chatbot that uses myScheme data/APIs to answer eligibility questions via voice/text in local languages.
+
+Title: AI Toolkit for Anganwadi Performance Dashboards
+
+Problem: ICDS Anganwadi data (nutrition, attendance, growth charts) is fragmented.
+
+Project: Build an AI-powered dashboard that flags at-risk children, predicts dropout risk, and summarises village-level trends.
+
+
+11. Data Readiness & Standardisation:  ####################################################################
+Example projects
+Data Readiness & Standardisation
+
+Title: Unified Metadata Extractor for Indian Government Portals
+
+Problem: India’s government portals & data portals may use inconsistent metadata and poor documentation.
+
+Project: Build an automated metadata extractor + harmoniser that standardises dataset
+
+titles, descriptions, formats, temporal ranges, and geotags into a unified schema compatible
+
+with AIKosh.
+
+Title: Census & Survey Interoperability Engine
+
+Problem: Census, NSSO Reports, NFHS, and other survey datasets differ greatly across years in schema, terminology, district boundaries, and formats.
+
+Project: Build an engine that aligns multi-year Census & NSSO indicators, normalises
+
+geographic units, and outputs time-series AI-ready datasets with consistent variable names
+
+and units.
+
+12. Indic Language Enablement. ####################################################################
+Example Project
+Indic Language Enablement
+
+Title: Regional Language OCR & Corpus Builder (e.g., Regional language Newspaper archives)
+
+Problem: Huge libraries of scanned vernacular newspapers and books remain un-digitised,
+
+limiting NLP development.
+
+Project: Build a high-accuracy OCR pipeline for Indic scripts to convert scanned archives
+
+into clean text corpora for model training.
+ 
+13. Public Data Extraction & Structuring. ####################################################################
+Example Projects
+Public Data Extraction & Structuring
+
+Title: Government Tender & Procurement Normalizer (GeM + CPPP + Railways)
+
+Problem: Tender datasets from GeM, CPPP, Railways, and state procurement portals use different formats, terminologies, and document styles, preventing unified procurement analytics.
+
+Project: Build a pipeline that extracts tender details from PDFs/webpages (items, quantity,
+
+price, department, vendor details) and standardises them into a single schema with
+
+harmonised fields and deduplicated entries across platforms.
+
+Title: Infrastructure Project Tracker from PAIMANA website
+
+Problem: Progress reports of major infrastructure projects (roads, railways, irrigation) are available on PAIMANA portals but are not intuitive for user information
+
+Project: Create an AI system that extracts details like milestones, geo-locations, and progress percentages from monthly progress reports, producing a clean, structured database & interface that allows tracking cost overruns and delays.
+
+
+
+14. AI Assistant for the visually impaired. ####################################################################
+● Problem Brief: People with visual impairments face challenges in daily navigation and information access – reading signs, recognizing objects, identifying currency, etc. While tools like braille and canes help, they have limitations. AI can enhance independence by “seeing” the environment and describing it. An affordable, AI-based assistive solution (especially supporting Indian contexts like recognizing Rupee notes or reading Hindi/local text) can greatly improve quality of life for the blind community.
+
+● Solution Approach: Develop a computer vision-based assistant that can interpret the user’s surroundings and provide audio feedback. This could be implemented as a mobile app that uses the phone camera to capture images and then uses AI to perform tasks such as: object detection (“there is a chair in front of you”), scene description (“you are in a kitchen with a table and fridge”), reading text out loud (OCR for signage, books, or currency notes), or recognizing faces of known individuals. For hackathon scope, one can focus on one or two features – e.g., basic object recognition + text reading. The app would speak out the results using text-to-speech. We can target a simpler version tailored for local needs (like reading Kannada text or identifying Indian currency).
+
+Datasets:
+
+● Pre-trained CV Models: Rather than training from scratch (needs massive data), leverage models trained on large datasets like COCO (for object detection of common objects) or ImageNet (object classification). Many are available in frameworks (e.g., YOLO or SSD for detection).
+
+● OCR data: For text reading, use existing OCR engines (Tesseract) which have been trained on Unicode. If focusing on English, no extra training needed. For Kannada text, one might find pretrained OCR models (Google’s Tesseract does support Kannada script). If needed, synthetic images of Kannada words with labels can be generated for training an OCR but likely not necessary for demo.
+
+● Currency Recognition: If doing this, one could gather images of Indian currency notes (Rs.10, 50, 100, etc.) and either train a small classifier or simply detect and match templates. There are online datasets by hobbyists for currency.
+
+● Faces: not likely to implement fully but could use known face recognition datasets (maybe not in this short time, skip face ID). Essentially, rely on available models/datasets: e.g., use COCO classes for object naming (which cover everyday objects like person, car, chair, etc.). The VizWiz datasetkaggle.com is an example of images taken by blind users, but using that would require doing image captioning, which is complex. Instead, stick to simpler object detection and text OCR.
+
+● Tools and Platforms: Use OpenCV combined with a deep learning backend. For object detection, frameworks like YOLOv5 or SSD-MobileNet can be used (there are pre-trained weights one can download that output bounding boxes and labels for ~80 object categories). For OCR, Pytesseract (Python wrapper for Tesseract OCR engine) can extract text from images. For text-to-speech, use libraries like gTTS (Google Text-to-Speech) for simplicity or an offline TTS if internet not assumed. The app logic can be done in Python; if aiming for mobile, maybe demonstrate via a Python script with sample images.
+
+Implementation Steps
+● Object Detection Module: Integrate a pre-trained object detection model. For example, use YOLOv5 by loading its PyTorch weights. Test it on a sample image to ensure it outputs labels and confidence. Filter the output to only include high-confidence detections and maybe the top 3 objects in view.
+
+● OCR Module: Use OpenCV to detect if there’s text in the scene (maybe if user explicitly asks to read text or always attempt OCR on the frame). With Pytesseract, get any textual content. If multiple lines, concatenate into a sentence. For currency, one could either rely on OCR to read the numeral on the note or train a small image classifier on snapshots of different note designs (color and pattern differences). For hack demo, perhaps just OCR the number on currency notes (which are printed in English numerals) to identify value.
+
+● Integration: Simulate the app’s use. E.g., have a couple of images: one of a room with objects, one of a street sign, one of a currency note. Run the assistant on each: for the room image, the object detection finds “chair, person, dog” etc. Form a sentence: “I see a person sitting on a chair, and a dog nearby.” For the sign image, OCR yields text “City Hospital 200m ->” and the assistant reads “City Hospital 200 meters ahead.” For currency, it reads “100” and says “This is a 100 rupee note.” The generation of sentences can be templated (just list objects or read out detected text).
+
+● Audio Output: Use a TTS library to convert these outputs to speech (in English or Kannada as needed). If audio can’t be played in the presentation setting, ensure the textual output is shown as well.
+
+● User Interaction: In a real app, user would tap a button for “describe scene” or “read text.” We can simulate this by just running different functions. Optionally, implement a simple command-line prompt like “Enter mode (1 for object, 2 for read):” and then process an image accordingly.
+
+● Impact: This AI assistant directly contributes to inclusion and independence. It allows visually impaired individuals to interpret their surroundings through audio, which can be life-changing – enabling them to navigate unfamiliar places, read important documents or signs, and perform daily tasks more confidently. By focusing on local context (local language text, currency, etc.), it ensures the technology is applicable in our community, thus exemplifying AI for social good.
+
+15. AI-driven waste Management (Smart Sorting & Collection) – Cleaner Cities with AI. ####################################################################
+● Problem Brief: Waste segregation (separating recyclables, organics, etc.) is poorly done in many places, leading to more landfill waste and pollution. Additionally, optimizing waste collection routes and schedules is a challenge – sometimes bins overflow because collection wasn’t timely. A lot of recyclable material is lost due to mixing, and manual sorting is hazardous to workers. AI can assist both at the household level (guiding proper segregation) and municipal level (automating sorting and optimizing pickup).
+
+● Solution Approaches: Two Aspects –
+
+⊙ Waste Image Classification: Use computer vision to identify types of garbage (plastic, paper, metal, organic) from images. This could be used in smart bins that scan an item as you throw it and direct it to the correct internal bin (much like some recycling machines). Or as an app where a user can snap a photo of an item to know if it’s recyclable.
+
+⊙ Collection Optimization: Use data on bin fill levels (which could be from IoT sensors in bins) and location to plan efficient routes for garbage trucks, ensuring timely collection and reduced fuel usage. This can be done by an algorithm that picks which bins to empty when and in what order (a form of dynamic routing problem.For hackathon, the image classification is easier to demo. We can train a model on a dataset like TrashNet to classify images into categories (plastic, paper, etc.) researchgate.net. Then simulate how an item is sorted. For routing, perhaps demonstrate a simple heuristic: given locations of full bins, compute a short path (though doing VRP optimization from scratch is complex, maybe mention concept or use a small example with 3-4 points). We will likely focus on the sorting part given the time. The upGrad sustainability ideas list had exactly “Waste Segregation System using image classification” upgrad.com.
+
+● Datasets: TrashNet datasetresearchgate.net: Contains images of trash in 6 categories (cardboard, glass, metal, paper, plastic, general trash) ~2500 images total. We can use this to train a CNN to classify an image of waste into one of these classes.
+
+⊙ There’s also a Garbaging classification dataset on Kaggle similar to TrashNet. If needed, could supplement with our own few images (or Google images) for variety, but TrashNet should suffice as proof-of-concept data.
+
+⊙ Bin fill data: Not readily available, but one can generate random “fill level” for bins and positions to demonstrate route planning. Or use a known city grid to pick points. But we might skip deep dive here due to complexity.
+
+⊙ Tools & Platforms: TensorFlow/Keras for training the image classifier. If pressed for time, one could use a pre-trained model and just fine-tune on TrashNet, or even use a ready model if available (some GitHub projects might have one). OpenCV to process input image (like resizing). For routing optimization, Python’s NetworkX could model graph and perhaps a greedy approach, or use OR-Tools if familiar, but likely not needed for a basic example. Visualization of route could be done with Folium (marking points on a map), but textual description is fine.
+
+Implementation Steps:
+● Train Garbage Classifier: Load TrashNet images (assuming we have them split by category). Preprocess and train a CNN (maybe a small one like MobileNet or even a custom small conv net due to limited data). Achieve, say, ~80% accuracy on validation (TrashNet isn’t huge, but moderate success is okay) upgrad.comupgrad.com. If training is slow, maybe train on a subset or just illustrate concept by showing the model can at least differentiate obvious items (like glass vs paper).
+
+● Demo Sorting: Take sample images representing each category (e.g., a glass bottle, a cardboard box, a banana peel, a soda can) and run them through the model. Have the model output the predicted category. Then simulate what happens: “Detected Plastic – route to Recycling bin”. Perhaps present this as if you had multiple small bins or sections and the item goes to the right one. If possible, show an image of bins labeled Recycle/Organic and overlay an arrow to the correct one for a given item. Or simpler, print: “Input image: [bottle.jpg] – AI classifies as Glass – should go to Glass/Recycle bin.”
+
+● Routing (conceptual): Suppose we have IoT-enabled bins that report fill % (for 5 bins around a city). On a given day, our system sees bins A and C are >80% full. Using a map of distances, we can calculate an optimal route for the truck starting at garage, visiting A, then C, then dumping ground. For demonstration, maybe just show: “Today’s pickup schedule: Truck 1 will service Bin A -> Bin C -> Landfill (optimized path covers 5 km instead of 8 km if fixed route).” Possibly illustrate with a quick map sketch or distance table.
+
+● Alert & Monitoring: Also mention the system can alert municipal staff: “Bin A is 90% full, collected soon” to avoid overflow. If the hack had time, could integrate a threshold alert from a fake sensor data feed. But mention is fine.
+
+● Impact: Proper waste segregation means more materials get recycled and less goes to landfills, improving environmental outcomes. An AI-based sorting assistant can educate and enforce better segregation habitsupgrad.com. Automated sorting also protects sanitation workers from hazardous exposure. Additionally, optimized collection routes mean cleaner cities (no overflowing bins), lower fuel use, and cost savings for municipalities. This all contributes to public health (less garbage means fewer pests and disease) and environmental conservation – a clear social good.
+
+16. Medical imaging Diagnosis (TB and Eye Disease Detection) – AI Diagnostics for Healthcare Access. ####################################################################
+● Problem Brief: Diagnosing certain diseases requires specialized tests or experts which are scarce in many areas. For example, detecting tuberculosis (TB) from chest X-rays or diabetic retinopathy (a cause of blindness) from retinal scans requires radiologists or ophthalmologists, who may not be readily available in every district. Delays in diagnosis of TB lead to its spread, and undiagnosed diabetic retinopathy can cause blindness. AI can help by acting as a screening tool for such conditions, alerting doctors to at-risk patients.
+
+● Solution Approach: Implement a machine learning model for medical image analysis that can screen for a specific condition. Two potent use-cases: (a) TB detection from Chest X-Rays – using a deep learning model to distinguish TB-positive X-rays from normal; (b) Diabetic Retinopathy detection from retinal images – classifying fundus photographs by severity of retinopathy. For the hackathon, a team could choose one of these (or similar radiology tasks). The model would be a CNN trained on labeled medical images.
+
+● Datasets: There are openly accessible datasets for both examples:
+
+TB Chest X-Ray datasets: e.g., the Montgomery and Shenzhen TB datasets (available via NIH) or the “Tuberculosis (TB) Chest X-ray Database” (which contains 3500 normal and 700 TB-positive X-rays) onlinelibrary.wiley.com. Another source is Mendeley Data: Chest X-ray images for TB which includes around 2,900 images (some TB, some normal) data.Mendeley.com. Kaggle also hosts a compilation of TB X-ray imageskaggle.com. These can be used to train a binary classifier (TB vs No TB).
+
+Diabetic Retinopathy: The APTOS 2019 Blindness Detection dataset (hosted on Kaggle) contains thousands of retinal images labeled by retinopathy grade. There’s also the older Diabetic Retinopathy Kaggle 2015 competition dataset with 35,000 images. Compressed versions like EyePACS (with images labeled 0–4 for disease severity) are publicly availablekaggle.com. A smaller subset or a preprocessed version can be used due to time constraints. These images are typically high-resolution retina scans labeled by ophthalmologists.
+
+● Tools & Platforms: Deep learning frameworks (TensorFlow/Keras or PyTorch) to build CNNs. Pretrained models such as ResNet50 or EfficientNet (which have shown good performance on medical images) could be fine-tuned on the dataset. We can utilize transfer learning to achieve decent accuracy within hackathon time. OpenCV or PIL for image preprocessing (resizing, normalization, maybe CLAHE for X-ray contrast). If computational resources are limited, we might restrict them to a smaller model or subset of data. The final model can be packaged in a simple web app where a user (doctor or health worker) uploads an image and gets a result.
+
+Implementation Steps
+● Data Preparation: Download a representative subset of the medical images. Due to large size, perhaps use ~1,000 images for training as a proof-of-concept. Perform preprocessing: e.g., convert X-rays to consistent size and normalize pixel values (and optionally apply augmentation like flips or rotations since orientation doesn’t matter for X-rays). For retinal images, maybe crop to the circular region of interest and resize.
+
+● Model Training: Build a CNN classifier. For TB (binary classification), something like: take a pretrained ResNet50, replace final layer with 2 outputs (TB or Normal) and train (with freezing initial layers initially). Monitor validation accuracy – aim for reasonable separation (in real life these models achieve ~95%+ on test setspmc.ncbi.nlm.nih.gov, but even ~85% in hackathon setting would demonstrate the concept). For retinopathy (which has 5 classes from No DR to Proliferative DR), one could simplify to binary (disease or no disease) for easier modeling or use ordinal regression techniques. Use cross-entropy loss, etc.
+
+● Validation: Evaluate the model on a hold-out set to ensure it’s learned some signal (e.g., TB X-rays often show lung opacities – the model should pick those up). If time permits, use Grad-CAM or similar to visualize which part of the image the model focuses on (this adds explainability, e.g., highlighting lung spots or retinal hemorrhages).
+
+● Deployment Demo: Create a simple interface (could be as simple as a local folder where placing an image and running a script prints the prediction, or a Flask app with an upload button). Show output like “Prediction: TB Positive” or “No signs of DR detected” with some confidence score. In a full application, we’d want to integrate this into a workflow for a health worker, but for the hackathon, demonstrating on a few sample images is sufficient.
+
+● Impact: An AI that can screen medical images enables early detection of diseases in resource-constrained settings. For example, a primary health center could use the TB X-ray model to flag suspicious lung X-rays and prioritize those patients for further testingcaryinstitute.org. Similarly, an AI screening tool for diabetic retinopathy can identify patients who need to see an eye specialist, thereby preventing blindness by timely treatmentcaryinstitute.org. This democratizes expert diagnostics, making healthcare more accessible and is clearly aligned with social good – saving lives and improving quality of life via technology.
+
+17. Sign Language Recognition and Translation – Bridging Communication for the Deaf. ####################################################################
+● Problem Brief: The deaf and hard-of-hearing community often relies on sign language to communicate, but most hearing individuals do not understand sign language, leading to a communication gap. In India, the use of Indian Sign Language (ISL) is growing, but there’s still limited support in mainstream interactions (e.g., at hospitals, banks, etc.). An AI system that can translate sign language (gestures) into spoken/written language and vice versa could greatly assist deaf individuals in communicating with hearing people without an interpreter present.
+
+● Solution Approach: Develop a prototype of a Sign Language Translation tool. For hackathon scope, it can focus on translating isolated signs (like alphabets or common words) from video to text. The system would use computer vision to identify hand shapes/movements. For example, using a webcam to capture a person signing letters A-Z in ASL or ISL alphabet and converting that to text. Conversely, it might show the sign for a given text phrase (or speak out for hearing user). Full sign language recognition (which involves complex sequences and grammar) is very challenging, so a simplified approach is recognizing either the alphabet or a small vocabulary of 10-20 signs (like “hello,” “yes,” “no,” “thank you,” etc.). Research in this area often uses deep learning with videos; we can attempt using image frames and a classifier for static signs. Projects like OpenASL and MS-ASL provide datasets and baseline modelsmicrosoft.github.io.
+
+Datasets:
+
+⊙ Sign language image datasets: For ASL (American Sign Language) alphabets, a popular dataset is the ASL Alphabet on Kaggle, which contains 29 classes (26 letters + some extra signs) with thousands of images of hands in those positionskaggle.com. That could train a CNN to recognize each letter. For ISL (Indian Sign Language), data is scarcer, but recently efforts like the Chatra (ChatSign) project have collected some ISL gesture datadiscuss.huggingface.co. If no ready ISL dataset is at hand, using ASL is acceptable for demonstration (since the concept transfers).
+
+⊙ Pose data alternative: One could use MediaPipe Hands or OpenPose to get keypoint coordinates of the hand and classify based on that – which avoids needing a huge dataset by using geometric features. But that requires implementing pose extraction.
+
+● Tools & Platforms: TensorFlow/Keras or PyTorch for training a CNN on sign images. Alternatively, use MediaPipe (by Google) for real-time hand tracking – it can provide landmarks of hand joints which can then be classified. MediaPipe’s built-in model can identify some basic gestures, but probably not alphabets, so we still need classification. For translation output, simply map the detected signs to letters or words and display them / text-to-speech them. If video streaming is attempted, need to handle frame-by-frame processing (OpenCV to capture webcam frames, then pass to model). But in hackathon, demonstrating on a set of test images or a short, recorded video might suffice.
+
+Implementation Steps
+● Model Training: If using ASL alphabet dataset, train a CNN to classify images of hands into 29 categories (A-Z, space, etc.). This is a standard image classification: input is an image (possibly grayscale or color of a hand signing a letter), output is one of the letters. Achieve high accuracy on test set (the Kaggle ASL data is clean so >95% is feasible with CNN).
+
+● Real-time Recognition: Integrate the model into a pipeline where a webcam feed is processed. For simplicity, maybe require the user to hold a sign for a second and capture a frame, then classify. Or record a short video of signing a word letter-by-letter and run classification on each frame. The sequence of predicted letters forms the output word. This could demonstrate, for instance, spelling out the word “HELLO” in sign and the system prints “HELLO”.
+
+● Word-Level Signs: Alternatively, or additionally, implement recognition for a few whole-word signs by training on a few samples (e.g., maybe create custom data – record a team member signing “Namaste” or “Thank You” etc. – but that might be too little data to train, better stick to alphabet or known dataset words).
+
+● User Interface: For a deaf user to communicate to a hearing user: the system would capture their signs and output text. For hearing to deaf, a simple approach is to have pre-recorded videos or GIFs of a person doing certain signs (or showing the sign images for letters) corresponding to input text. But that’s complex to do fully. Maybe skip hearing-to-deaf for now, or just acknowledge that text-to-sign could be done by playing recorded sign videos for common phrases.
+
+● Testing: Try out the classification on a few real images (maybe the developer’s hand) to gauge how well it generalizes beyond the training dataset. Possibly use a laptop camera to sign some letters and check if it is recognized correctly. If not, it might be because the Kaggle data might have different background; one could apply background removal or color segmentation as preprocessing to aid the model.
+
+● Impact: This project addresses communication barriers for the deaf, enabling more inclusive interactions. An effective sign-to-text translator means a deaf person could sign into a camera and be “heard” by someone who doesn’t know sign language (the system speaks or displays it) kaggle.com. In public services – hospitals, police stations – such technology could help service providers understand clients with hearing disabilities, ensuring they receive proper attention. It’s a tool for accessibility and equality, clearly a social good application of AI.
+
+18. AI for Enhancing Education Quality. ####################################################################
+● Problem Brief: Classrooms in India, especially in government schools, often have a wide range of student abilities. Some students fall behind because teaching is one-size-fits-all and teachers are overburdened. Personalized tutoring can greatly improve learning outcomes, but human tutors for each student are impractical. An AI that adapts to each student’s learning level and provides customized support can help bridge this gap – improving educational outcomes which is a core social good.
+
+● Solution Approach: Create an AI-powered learning app that adjusts to a student’s pace and style. This could be a subject-specific tutor (e.g., mathematics or English) which uses machine learning to recommend practice problems suited to the student’s skill, gives hints, and provides feedback. Over time, it learns the student’s strengths and weaknesses to focus on areas needing improvement. Key components: a recommendation system for content (perhaps using collaborative filtering or a decision tree based on performance), and an NLP component for understanding student queries or answers (if we allow free response).    For a hackathon MVP, one might implement a simplified “intelligent tutor” for math: the system asks a question, student answers, AI checks it and decides the next question difficulty. This is akin to systems like Carnegie Learning or Khan Academy’s mastery learning approach. Globally, such personalized learning systems have shown promises where an AI chatbot helped increase college enrollment by guiding adaptive learning platforms.
+
+● Datasets:
+
+⊙ Educational Content Data: a repository of questions and answers (for the chosen subject and grade level). For example, a math question bank (numerical problems with solutions) for class 6-10 is needed if doing math. One could use open educational resources: NCERT textbooks (questions can be scraped or manually entered), or datasets like “Assistments” (an open dataset of student interactions with math problems used in research) which contains sequences of Q&A and whether the student got it right. Assistments data can be used to train a model to predict student performance or recommend next problems.
+
+⊙ Student performance data: If available, something like the EdNet dataset or KDD Cup 2010 Educational Challenge data, which include student responses over time, can help create a model of learning (Knowledge Tracing). These might be complex, though. For hackathon, it might be enough to simulate a student model by generating a pattern (e.g., student has an 80% mastery on algebra, 50% on geometry).
+
+⊙ Language datasets (if doing NLP): If the tutor is to understand natural language questions from students, some dataset of student queries or common mistakes could be useful (maybe not needed for MVP if we keep interactions structured).
+
+● Tools & Platforms: If focusing on the recommendation logic, we can use Python with data science libraries to implement a simple Knowledge Tracing model (like Bayesian Knowledge Tracing or using an LSTM to predict next answer correctness). Alternatively, a simpler approach: maintain a score for each topic and update it based on answers (no heavy ML needed). For NLP aspects, NLTK or spaCy could be used to parse a student’s answer if free text (like checking if their short text answer contains the correct keywords). A user interface can be a web-based quiz app (HTML/JS or a Jupyter notebook for demo).
+
+Implementation StepsImplementation Steps
+● Content Preparation: Decide on subject and scope (e.g., arithmetic operations for 5th grade). Prepare a graded set of problems from easy to hard. Also prepare explanations/solutions for each so the AI can show them if the student is stuck.
+
+● Student Model: Implement a simple adaptive algorithm. One approach: Start every student at medium difficulty. If they answer correctly, they slightly increase difficulty next; if they answer wrong, provide a hint or easier follow-up. Keep track of their correct history per topic. For example, if the student consistently fails fraction problems but succeeds in addition, the system identifies “weak in fractions” and accordingly selects more fraction practice (but perhaps at an easier level with hints). This logic can be coded with if-else or a basic probabilistic model. If using ML, one could train a logistic regression that given features (like attempts, past performance) predict probability of next answer correct and then set difficulty such that target success probability ~ 0.7 to keep it challenging but not frustrating.
+
+● Feedback Mechanism: Incorporate explanations. When a student gets something wrong twice, the tutor should offer a step-by-step solution or a hint (we can hardcode a couple of generic hints per topic in our dataset). Also, encourage the students when they get it right (“Great job! Let’s try something harder.”). This keeps it engaging.
+
+● Interface: Build a simple loop where the system poses a question (text or multiple-choice). The student (demo as the hackathon presenter or judges acting as student) inputs an answer. The system evaluates it (if numerical, direct check; if multiple-choice, check selection; if text, possibly use a regex or keyword match for correctness). Then it responds with correct/incorrect and either explains or moves on. Possibly, after a set of questions, show a mastery report: “You have mastered addition and need practice in fractions.”
+
+● Testing & Personalization: Simulate two different “student” profiles to ensure adaptation works – e.g., one who answers everything correctly (the system should quickly ramp up to the hardest questions), and one who struggles (the system should slow down, repeat easier questions or give more hints). Adjust the adaptation strategy based on these tests.
+
+● Impact: AI-powered personalized tutoring can significantly improve learning outcomes by giving each student the specific support they need. In the context of India, such tools (especially if made available in local languages) can help students in remote areas to learn at their own pace, supplementing the schooling system. This addresses inequalities in education quality and can help more students achieve basic competencies – a long-term social benefit.
+
+19. AI for Financial Inclusion (Smart Credit Scoring for the Unbanked) – Empowering with Fair Finance ####################################################################
+● Problem brief: Many individuals and small businesses in India don’t have formal credit history, which limits their access to loans or financial services. Traditional credit scoring (like CIBIL) fails them, even if they are creditworthy in practice. This excludes a segment from economic growth (they resort to informal lenders with high interest). AI can help by analyzing alternative data (like mobile payment history, utility bills, social data) to assess credit risk, enabling microfinance institutions or banks to extend credit safely. The goal is to include more people in the financial system by accurately evaluating risk where conventional methods can’t.
+
+● Solution Approach: Develop a machine learning model for credit risk prediction using alternative data. For example, use transaction history from mobile wallets or purchase patterns to predict likelihood of loan repayment. The AI would output a credit score or a decision (approve/reject loan). Since at hackathon we won’t have real alt-data, we could simulate a dataset of features such as: mobile recharge regularity, bill payment timeliness, social network stability, etc., and whether a previous micro-loan was repaid. Then train a classifier (e.g., decision tree or logistic regression) to predict repayment. This demonstrates how non-traditional data can be used. We can mention actual global examples: some fintech use phone metadata (number of contacts, locations) to gauge stability and willingness to repay. But focus on a structured approach.
+
+● Datasets: Home Credit Default dataset (Kaggle)github.com is a real-world example with lots of alternative features (like credit card usage, number of children, etc.) and a target of whether they defaulted. We could use a subset for training a model (it’s large but maybe sample it).
+
+UCI Credit Approval (older dataset of 690 instances with attributes like age, income) archive.ics.uci.edu – not exactly alt-data but can serve for building a model. It is classical but fine for demonstration.
+
+Self-simulated data: create 100 people’s data with features like: has smartphone (T/F), monthly mobile spending, any late payments (T/F), education level, etc., and a label good/bad.
+
+We saw in references the Kaggle credit card fraud (but that’s fraud detection, not credit scoring). Instead, Kaggle “Financial Inclusion in Africa” dataset exists, but it’s more about who has bank account. Might skip that.
+
+● Tools & Platforms: Pandas to handle tabular data, scikit-learn to train a classification model (say RandomForest or XGBoost for better capture of nonlinearities). Possibly use SMOTE if data imbalanced (defaults are rarer). Evaluate with AUC or accuracy. Perhaps it also shows feature importance to see what factors are predictive (like paying bills on time might be top factor).
+
+Implementation Steps
+● Data Prep: If using a real dataset like Home Credit, select a few key features (like income, number of previous loans, any default flags, etc.) to keep it simple, and the target (binary: default or not). Otherwise, generate synthetic data with some logic (e.g., if a person frequently tops up phone and pays bills promptly, likely good, and if they have very erratic usage and no stable job, likely risky).
+
+● Model Training: Split into train/test. Train a Random Forest classifier to predict default (0/1). Check performance on test (aim for decent accuracy or AUC ~0.7+). If using synthetic, ensure it’s somewhat learnable pattern.
+
+● Demo usage: Show how given a new applicant’s data, the model would output a probability of default. For instance, Person A (features: moderate income, always pays bills, smartphone user) gets score = low risk (model says 5% chance default -> approve loan). Person B (low income, sporadic payments, etc.) gets high risk (model says 40% chance default -> maybe not approve or require guarantee). Print these scenarios.
+
+● Fairness Check (optional mention): We should ensure the model doesn’t indirectly discriminate (e.g., if using location and that proxies caste/income). Mention that responsible AI should be applied – maybe a bias check on gender if includedresearch.cgu.eduresearch.cgu.edu. For hack demonstration, not going deep, but acknowledge it.
+
+● Integration: This model could be deployed in a mobile app where a loan agent inputs applicant’s alternative data and instantly gets a creditworthiness score. Combined with some KYC, decisions could be made faster and more inclusive.
+
+● Impact: Such an AI system could bring millions into the formal financial system by giving them a chance to access credit based on their true reliability rather than lack of formal historygithub.com. It empowers small entrepreneurs (e.g., a local weaver who always pays her utility bills on time might be a good credit risk even if she has no bank loan record). Financial inclusion is a key driver for poverty alleviation and economic development. By reducing default through better assessment, it also ensures sustainability for lenders, making it win-win. This is a powerful example of AI for social good in economic inclusion.
+
+20. AI-powered Smart Agriculture Advisor: boosting Crop Yields and Farmer Decision-Making ####################################################################
+● Problem Brief: Farmers often make critical decisions (crop selection, sowing time, fertilizer use) based on intuition or limited information, leading to suboptimal yields. In India’s agriculture sector, factors like unpredictable monsoons, soil variability, and market price fluctuations affect farmer incomes.
+
+● Solution Approach: Develop an AI advisor that provides personalized recommendations to farmers on improving crop yield and farm management. This system would analyze historical crop yield data, weather patterns, soil data, and farming practices to give insights such as the best crop to plant for the upcoming season, optimal sowing dates, anticipated yield, and recommended inputs (fertilizer, water) for each stage. A Machin
+
+● Datasets: Open datasets such as “India Agriculture Crop Production” (district-wise data from 1997-2021) kaggle.com provide historical production and yield figures for various crops, which can be combined with weather data from IMD (Indian Meteorological Department) or NASA. Soil health card data from the India open data portal (if available) could supply soil parameters. Additionally, datasets like “Crop Recommendation Dataset” on kaggle.com include soil and climatic features for recommending suitable crops. These public data sources can train the advisor on region-specific conditions.
+
+● Tools & Platforms: Python with libraries like scikit-learn or XGBoost for predictive modeling, or TensorFlow/PyTorch for neural networks. Geospatial libraries (e.g., GeoPandas) could integrate satellite data (rainfall, vegetation index). A simple web or mobile interface can be built using Flask or Android to allow farmers to input local parameters and receive recommendations.
+
+Implementation Steps: Indicative
+● Data Collection & Prep: Aggregate historical data for a specific region (crop yields by season and location, rainfall and temperature records, soil characteristics). Clean and merge these datasets by region and time. For example, create a feature set of [soil type, last season crop, rainfall, fertilizer use, etc.] and target variable [yield or income].
+
+● Model Training: Use regression ML models to learn patterns between inputs and outcomes. For instance, train a Random Forest model predicting yield of a crop given preseason weather forecasts and soil data. Evaluate the model using past seasons (split data into train/test years). Tune for best accuracy.
+
+● Recommendation Engine: Formulate logic to turn predictions into advice. E.g., for crop recommendation, run the model for candidate crops and suggest the crop with highest expected yield or profit. Ensure the AI also considers crop rotation and market price trends (which could be an extension using price datasets).
+
+● User Interface: Develop a simple app where a farmer selects their location and current farm conditions. The app queries the model (which could be hosted as an API) and returns advice like “Recommended crop: Millet – expected yield 2.5 tons given forecasted rain” or “Next irrigation in 5 days based on soil moisture trend.” Use local language for the interface to improve accessibility.
+
+● Testing: Simulate the advisor on known historical scenarios (back-testing) to verify that the recommendations would have made sense. If possible, incorporate feedback from actual agricultural experts or farmers.
+
+● Impact: This AI advisor could help farmers make data-driven decisions, potentially improving productivity and income. By leveraging open data and AI, even smallholder farmers can benefit from advanced insights normally available to large agribusinesses, thus fostering social good through improved livelihoods.
+
+21. Air Quality Monitoring and Prediction – AI for environmental Health. ####################################################################
+● Problem Brief: Air pollution is a major issue in Indian cities (and even rural areas during crop burning season). Timely information on air quality and forecasts can help authorities and citizens take action (like limiting outdoor activities or implementing traffic restrictions). Currently, monitoring stations provide data in many cities, but coverage is limited and forecasts often rely on complex models not easily accessible. Using AI on available pollution data and weather patterns could provide more localized predictions or at least fill gaps where no sensor exists.
+
+● Solution Approach: Build an AI model to predict Air Quality Index (AQI) levels for the next day (or next few hours) in a given area, and/or infer current pollution in areas without sensors by using nearby sensors and other data. This could be treated as a regression problem (predict continuous AQI value) or classification (good/moderate/unhealthy categories). We can use historical data of pollutant levels and weather to train a model that forecasts future AQI. Another angle is spatial interpolation: using data from surrounding stations to estimate an area’s air quality. For hackathon simplicity, we might do a time-series forecasting for one station. For instance, predict tomorrow’s PM2.5 concentration in Bangalore using past week data and weather forecast as input. The AI could be an LSTM network or even a simpler Random Forest with features engineered (e.g., yesterday’s pollution, temperature, wind speed, day of week, etc.).
+
+● Datasets:
+
+⊙ Air quality data: The Indian government’s CPCB provides daily or hourly AQI readings for stations; these can be accessed via the OGD platformdata.gov.in or CPCB’s website (some data might require scraping). Alternatively, the OpenAQ initiative aggregates global air quality data and has many Indian cities included (with an API to fetch historical PM2.5, PM10, etc.). Kaggle also hosts datasets, e.g., “Air Quality Data in India (2015-2020)” which covers multiple cities with hourly readingsgithub.comkaggle.com. That can be used to train models.
+
+⊙ Weather data: Temperature, humidity, wind, etc., since they influence pollutant dispersion. This can be fetched from IMD or global sources. For simplicity, use a free API (OpenWeatherMap) to get historical weather for that city or use a dataset like “Delhi Climate Data” if focusing on Delhi’s air.
+
+For spatial model: location of stations and maybe traffic or emission sources data could help, but likely out of scope. Focus on temporal prediction.
+
+● Tools & Platforms: pandas for time-series handling, statsmodels/Prophet for quick time-series forecasting. Or use TensorFlow/Keras to make an LSTM/GRU model for sequence prediction (needs sequence input of pollutant levels). scikit-learn’s regression algorithms (Random Forest, SVR) could also do with features like lag values and weather. Visualization libraries (matplotlib or Plotly) to show actual vs predicted curves. Possibly a simple web interface to display current and predicted AQI with color coding (green/yellow/red).
+
+Implementation Steps
+● Data Preparation: Choose a city or station (say New Delhi). Collect its AQI or PM2.5 data for the last couple of years on a daily or hourly basis. Also gather corresponding weather variables (e.g., daily avg temp, wind speed). Clean the data (handle missing values, etc.).
+
+● Feature Engineering: Create time-lagged features (AQI of past 1, 2, 3 days, etc.), and add weather and date features (month or season indicator, since pollution has seasonal trends).
+
+● Model Training: If using regression, train e.g., a Random Forest where input is [AQI_yesterday, AQI_2daysago, temp_today, wind_today, etc.] and output is AQI_today. Actually, to predict tomorrow, input would include today’s known data and maybe forecasted weather for tomorrow (which we can supply from an API or assume persistence). Another approach is an LSTM: give it a window of past 7 days of AQI and it predicts next day – you’d need to shape data accordingly and train. Evaluate the model’s RMSE or classification accuracy for categories.
+
+● Prediction & Visualization: Integrate the model to produce a forecast. For example, if today is Nov 21, input data up to Nov 21 and predict Nov 22. Display: “Predicted AQI for tomorrow in New Delhi: 150 (Unhealthy for sensitive groups).” If possible, also show an error margin or multiple outputs for different scenarios (some do ensemble for weather conditions, etc.). For hack demo, can show a chart: x-axis dates, y-axis AQI, actual vs predicted line.
+
+● Alert/Insights: Additionally, the system can identify key drivers from the model (Random Forest feature importance might show weather or yesterday’s pollution matters). If an extreme event is predicted (like very high AQI), flag it: “Alert: AQI expected to spike, likely due to low winds and ongoing fires.” (If data supports it – e.g., Diwali cracker effect or stubble burning season known via date).
+
+● Impact: This AI solution contributes to environmental health by providing timely information. Citizens can plan (wear masks, use purifiers, etc.) and authorities can take preventive steps (sprinkling water on roads, issuing health advisories) if they know bad air days in advance. Moreover, continuous monitoring and gap-filling through AI ensures that even areas without expensive sensors can get an estimate of air quality, democratizing access to this crucial information. Clean air is a social good, and AI here helps protect public health and raise awareness of environmental issues.
+
+22. Disease Outbreak Early Warning (Epidemiology AI) – Predicting and Preventing Epidemics. ####################################################################
+● Problem Brief: Public health officials need to detect outbreaks of diseases (like dengue, COVID-19, or diarrheal diseases) as early as possible to contain them. Traditional surveillance can be slow – by the time many cases are confirmed, the disease may have spread. Especially in India’s dense populations, a delayed response can lead to large-scale outbreaks. We need smarter systems that analyze various signals to predict or detect outbreaks sooner.
+
+● Solution Approach: Create an AI system that analyzes real-time data and raises alerts for potential disease outbreaks. This could involve a combination of data sources: health clinic reports, pharmacy sales (e.g., spike in certain medication sales), social media or Google search trends (e.g., many people searching for “dengue fever symptoms” in an area), weather conditions (since climate affects diseases – e.g., stagnant water after rains increases mosquito breeding). A machine learning model (or even statistical threshold model) can learn the normal pattern and detect anomalies indicating an outbreak. For instance, using time-series analysis or a simple classification: input last few weeks’ data -> output probability of an outbreak next week. This idea is inspired by projects like Google Flu Trends (which tried to predict flu activity from search data) and other AI4Good initiatives where algorithms predicted COVID hotspots from coughing sounds or mobility datacaryinstitute.org. The system could be tailored to one disease for the hackathon (say dengue, which is seasonal and data-rich in India).
+
+● Datasets
+
+⊙ Epidemiological data: e.g., weekly case counts of diseases like dengue, malaria, influenza by region – sometimes available via open government health bulletins or the IDSP (Integrated Disease Surveillance Program) in India (though not easily accessible publicly, some summary stats might be on data.gov.in). For dengue, the municipal corporations often release data; Kaggle also has some historical data of dengue cases in specific cities worldwide. The “Dengue Trends” dataset (from a past DrivenData competition) has weather and case data for labels.
+
+⊙ Climate and environment: Rainfall, temperature, humidity data by week for regions (available from IMD or global sources) – dengue outbreaks correlate with these.
+
+⊙ Proxy data: Social media or search trend data might be simulated if not accessible. Alternatively, if focusing on COVID or flu, Google Trends data is publicly queryable (e.g., frequency of searches for “fever clinic”).
+
+⊙ Essentially, teams can use a combination of open data: World Health Organization provides some outbreak datasets, and Kaggle competitions (like “Dengue Fever Prediction”) provide cleaned data that can be repurposedcaryinstitute.org.
+
+⊙Tools & Platforms: Time series libraries like Facebook Prophet or statsmodels for anomaly detection in trends. If doing classification, scikit-learn for a random forest or XGBoost classifier that uses features such as [rainfall, temp, last week cases, etc.] to predict next week’s risk. Geospatial mapping tools (Folium or GIS) if we want to visualize outbreak locations on a map. For text data (if using Twitter feeds for words like “#fever”), one could use Tweepy to collect live tweets (if API access is available) and then NLTK to filter relevant ones. The system could run in a Jupyter notebook or as a script that prints alerts.
+
+Implementation Steps
+●  Choose target disease & area: e.g., “Predict dengue outbreaks in a specific region”. Gather relevant data: maybe last 5 years of monthly dengue cases (simulate if needed: use known patterns where cases spike in monsoon months). Get corresponding weather data for the same region (from open sources) – features like average temp, total rainfall, humidity. Organize this into a dataset with each time period as a sample with these features and an “outbreak” label (we can label a month as outbreak if cases > certain threshold).
+
+●  Model Training: If enough data points (time periods) are available, train a classifier (e.g., logistic regression or random forest) to predict outbreak occurrence. Alternatively, use time-series forecasting: forecast next month’s case count and trigger an alert if forecast exceeds baseline significantly. For classification, ensure to include lag features (last month’s cases) as those strongly predict next month.
+
+●  External signals: Introduce another input like Google search trends for “fever” or “dengue symptoms”. Google Trends can be downloaded as a CSV for specific keywords and region. Use that as a feature in the model. Or use dummy data for chemist sales (like an uptick in paracetamol sales might indicate fever prevalence). These can improve predictive lead time.
+
+●  Alert Mechanism: When the model (trained on historical data) is applied on recent data, have it output a risk score or binary alert. For demonstration, we could input data up to October and see if it predicts an outbreak in November. If doing a live demo, perhaps simulate that an unusual spike in fever-related tweets triggers the system to say “Alert: Potential Dengue Outbreak in area X next week – mobilize fogging and health camps.”
+
+●  Visualization: Create a simple dashboard or even a printout of a chart showing actual vs predicted cases, highlighting where the alert threshold is crossed. This helps judges see the pattern.
+
+●  Impact: An early warning system for outbreaks can save lives by enabling faster response – e.g., pre-positioning medical supplies, running awareness campaigns, or vector control in case of dengue. In India, where diseases like dengue or encephalitis can flare up seasonally, such AI tools could complement public health surveillance. This directly contributes to social good by improving community health resilience and is aligned with national initiatives for disease control.
+
+23. Fake News and Misinformation Detector ####################################################################
+● Problem Brief: Misinformation and fake news spread rapidly through social media and messaging apps, leading to social unrest, panic (as seen in rumors during pandemics), or harm (mob violence due to rumors in extreme cases). In India, tackling fake news in multiple languages is a significant challenge. There is a need for tools that can automatically analyze news content or social media posts and flag likely misinformation so that fact-checkers can verify and authorities can dispel rumors.
+
+● Solution Approach: Create an NLP-based fake news detection system. This could be a model that classifies a given news article or claim as “Real” or “Fake” based on text patterns. Many fake news detectors use supervised ML on datasets of labeled news articles (true vs false). Some also incorporate source credibility or user engagement features, but for hackathon, focusing on text content is fine. The model could be a TF-IDF with logistic regression or a simple transformer model fine-tuned on a fake news dataset. We could also integrate fact-check databases: e.g., check if a claim has appeared in a known fact-check repository (like PolitiFact or AltNews in India) – but that requires a database. We’ll likely do a content-based approach. For demonstration, we feed sample headlines or short articles and see if the model flags them. Keep in mind multilingualism; we might stick to English for prototype, but mention it can be extended to Hindi/Kannada by training on those languages (with transliteration if needed).
+
+● Datasets: There are well-known datasets: LIAR dataset (short political statements labeled truthfulness), FakeNewsNet, Kaggle Fake News Challenge data (which has news articles labeled as fake/real). Kaggle’s “Fake News” dataset has a collection of real and fake news articles from around 2017. We could use that to train a classifier.
+
+Indian context: Data specifically from Indian fact-checkers (AltNews, BoomLive) could be scraped but that’s heavy. For demonstration, English data suffices, with possibly one example from Indian domain if we find (like a known fake rumor headline vs a real one).
+
+The GitHub list shows a "Fake News Dataset (Kaggle)"github.com – which likely refers to the Kaggle fake news competition dataset. We can cite that as source.
+
+● Tools and Platforms: For NLP, Python’s scikit-learn (for simple models) or HuggingFace transformers (for BERT fine-tune). Given time, a simple approach: use TfidfVectorizer on text and a logistic regression or Naive Bayes classifier. That can achieve reasonable accuracy (~90% on some datasets). For demo, that’s enough. Possibly use NLTK for basic text cleaning (stopwords removal). If a neural approach is desired, maybe use a pre-trained DistilBERT and just do a couple of epochs fine-tuning on fake vs real news (if dataset not too large).
+
+Implementation Steps
+● Data Preparation: Obtain a subset of labeled news (e.g., 100 real and 100 fake news articles or even just headlines if full text is too long to handle quickly). Preprocess: remove punctuation, lowercasing, etc. Split into train/test.
+
+● Feature Extraction: Use TfidfVectorizer to turn text into features (maybe limit to top 1000 n-grams for speed).
+
+● Model Training: Train a logistic regression or Random Forest on these features with the labels. Monitor accuracy on test set. Ensure it’s not overfitting (maybe use cross-val if dataset is small). If using BERT, tokenization and training might be slower, so likely skip unless really wanting to show deep learning.
+
+● Testing & Demo: Prepare a few example inputs: e.g., a known fake headline (“PM gives Rs 15 lakh to every citizen” type rumor) and a legitimate news headline. Run the model’s predict_proba on them. Output something like: “Input: ''; Model prediction: Fake (95% confidence)”. And for a real one, “Model prediction: Real (85% confidence)”. Perhaps present 3-4 cases covering obvious fakes and borderline. Also note model isn’t 100% certain, explaining it gives a probability which can then be flagged for human fact-check if above a threshold.
+
+● Integration & Usage: Explain this could be integrated into social media platforms or messaging apps as a filter (with caution regarding censorship) or used by fact-checkers to prioritize which viral content to check first. It could also alert users “This news is unverified, please check from official source.” In multiple languages, one could train separate models or use a multilingual model. Possibly mention using CLD (common language detection) and translation as needed.
+
+● Impact: Curbing fake news helps maintain social harmony and informed decision-making. People will be less likely to panic or be misled if such an AI system flags dubious content quickly (especially in local languages where fewer fact-check resources exist). It promotes a more informed society and can even save lives (e.g., stopping false medical rumors or hate-inciting fake news that could lead to violence). Of course, such AI isn’t perfect and must work in tandem with human fact-checkers, but it significantly speeds up the process of identifying misinformation in today’s info-dense world.
+
+24. Flood Forecasting and Disaster Warning – AI for Disaster Management.  ####################################################################
+● Problem Brief: Floods are a recurring problem in many parts of India during heavy monsoons. Early warnings can save lives and property, but traditional flood modeling requires extensive data and is run by specialized agencies. AI may help by learning patterns from historical flood data (river levels, rainfall) to predict when and where floods might occur. Google’s AI Flood Forecasting initiative in India has shown success, issuing timely alerts since 2018. We aim to prototype a simplified flood prediction model for a specific river or region.
+
+● Solution Approach: Develop an AI model that takes in recent rainfall data, river water levels, and perhaps other upstream indicators, and predicts the likelihood of flooding in the next day or two. This could be approached as a time-series regression (predict river level tomorrow, and if above a danger threshold, that implies flood). Or classification (flood vs no-flood). We might focus on a known flood-prone river basin – for instance, the Vrishabhavathi or Cauvery – and use historical data. If precise data is hard to get, simulate based on known patterns (e.g., heavy rainfall for 3 days -> river crosses danger mark). Additionally, incorporate satellite data or soil moisture, if possible, as extra features. However, to keep it simple: use rainfall and river level.
+
+● Datasets:
+
+⊙ Rainfall data: Daily rainfall figures for the region of interest. The Indian Water Resources Information System (indiawris.gov.in) or IMD might have such data. Kaggle also has some rainfall datasets by region (e.g., “Kerala rainfall data” or general Indian monsoon data). Even global datasets like NASA’s could be used (but those might be coarse).
+
+⊙ River level / flow data: Central Water Commission (CWC) in India publishes river levels at various gauge stations. Possibly on data.gov.in or via reports. Getting a specific dataset might be tricky, but one could find some historical flood event info (e.g., “river X reached Y meters on Aug 5, 2019 causing floods”). For a hack, one might create a synthetic dataset where rainfall is input and river level is output, and tag floods when level > threshold. Alternatively, there was a competition dataset for flood prediction (maybe not sure).
+
+⊙ Flood events: Possibly available via disaster management agencies, listing dates and severity of floods in districts. That could be used to label data.
+
+In lieu of real data, simulate: generate a time series for rainfall; accumulate it to simulate river flow (like a simple hydrological model), then mark floods when the simulation crosses threshold.
+
+● Tools & Platforms: scikit-learn or TensorFlow for modeling. A sequence model (like an LSTM) could capture how consecutive days of rain lead to flood. Or simpler, a regression tree could use features like total rain for the last 3 days, today’s rain, current river level to predict tomorrow’s level. Also possibly use logistic regression for flood probability. Visualization via maps (maybe show a map with areas predicted to flood highlighted) could be nice, but not necessary; a time series plot showing actual vs predicted water level and flood threshold would suffice.
+
+Implementation Steps
+● Data Simulation: If real data is not at hand, create a hypothetical scenario: e.g., for 100 days, have a rainfall value. Use a simplistic watershed model: river_level_today = 0.8river_level_yesterday + 0.2(rainfall_today) - 0.1*(some evaporation factor). Then set a threshold: say 100 units as flood level. Identify days where river_level > 100 as floods. This gives training data linking rainfall patterns to floods. (This is rudimentary but demonstrates the idea.)
+
+● Feature Extraction: For each day, derive features like: rainfall today, rainfall last 2 days sum, rainfall last week average, previous day river level. And target: tomorrow’s river level or flood/noflood.
+
+● Model Training: If predicting continuous level, train a regression (e.g., linear regression or random forest regressor) on these features to predict next day river level. If classification, train a classifier (like logistic or random forest) to predict flood occurrence. Evaluate on some held-out days. If using simulated data, ensure the model at least picks up that heavy rain tends to cause floods. If using some real subset, try to tune accordingly.
+
+● Prediction & Alert: Integrate model to output something like: “Prediction: River will reach 105m (above danger level 100m) tomorrow – Flood Likely.” Or if safe: “No flood expected – water level ~80m.” Provide a lead time if possible (maybe predict 2 days out by feeding in forecasted rain for those days, which we can assume from weather predictions).
+
+● Visualization: Show a small chart with river level over the last week and the predicted next 2 days, with a line indicating danger level. Or if focusing on classification, show a timeline highlighting predicted flood days vs actual. Also mention any pattern (like “the model learned that >200mm rainfall in 3 days triggers flood”). We can cite Google’s approachcaryinstitute.org to emphasize viability.
+
+● Impact: AI-driven flood forecasting complements traditional methods by possibly offering quicker or hyper-local predictions. An accurate alert even a day in advance can enable evacuations and preparedness (moving valuables to higher ground, etc.), thereby reducing loss of life and property. In the social context, this project highlights how AI can help in disaster risk reduction – a significant public good. Moreover, it could be extended to other disasters (landslides, etc.) if successful.
+
+25. Maternal Health Risk Predictor – Protecting Mothers and Newborns with AI. ####################################################################
+● Problem Brief: Despite progress, maternal and infant mortality remain concerns in rural India. Many pregnant women do not get timely interventions for risk conditions (like anemia, hypertension, gestational diabetes) because predicting who is high-risk is challenging with limited resources. Health workers could benefit from a tool that flags pregnancies at risk so they can target care (extra check-ups, nutrition support, etc.) to those who need it most.
+
+● Solutions Approach: Build a predictive model that assesses the risk level of a pregnant woman based on her health indicators and background factors. Essentially, an AI model (e.g., a logistic regression or simple neural network) would take inputs such as mother’s age, number of previous pregnancies, antenatal check-up data (blood pressure, hemoglobin level, etc.), and perhaps socio-economic factors, and output a risk score or category (low, medium, high risk). This could predict outcomes like risk of complications (e.g., pre-eclampsia, pre-term birth, low birth weight baby). We can prototype a simplified version of such a model.
+
+● Datasets: A challenge is that health data is sensitive, but some anonymized open datasets exist. For instance, the Indian Maternal Health dataset (available on Kaggle) contains records of pregnancies with features like blood pressure, glucose, and outcome (it’s a synthetic dataset of 100+ entries). Alternatively, DHS (Demographic and Health Survey) data for India includes maternal and child health indicators for thousands of women (though it’s survey data). If available, the HMIS (Health Management Information System) or state health department open data might have aggregated stats that can be leveraged. Another dataset: “Maternal Health Risk Data” (if any open research – some universities publish small datasets, e.g., UCI repository might have related data). For the hackathon, even a constructed dataset based on known risk factors can be used to train a model. The key is to demonstrate using AI to classify risk. If focusing on specific conditions, say predicting anemia, data from NFHS (National Family Health Survey) could be used (NFHS provides prevalence by demographics).
+
+● Tools & Platforms: Standard data science stack: Pandas for handling tabular health records, scikit-learn for training classification models (e.g., logistic regression, decision trees) or even a simple multilayer perceptron (using Keras). If an ANN is used, it’s small-scale so as not to overfit given limited data. Possibly use SMOTE or other techniques if dataset is imbalanced (since high-risk cases might be fewer). For deployment, a simple web form or mobile app could allow a health worker to input a woman’s parameters and get a risk prediction.
+
+Implementation Steps
+● Feature Selection: Decide what input features to use based on medical significance. For example: mother’s age, weight/BMI, blood pressure, hemoglobin, blood sugar levels, previous pregnancy complications, spacing between children, etc. Also, environmental factors: rural vs urban, access to clean water, etc., which can be proxies from available data. In absence of a comprehensive dataset, the team can simulate data for, say, 1000 women, where 10% had adverse outcomes, and embed known risk patterns (like advanced maternal age >35 leads to higher risk).
+
+● Model Training: Train a binary classifier to predict something like “complication risk” (yes/no) or “will this pregnancy require special care.” Logistic regression is interpretable (useful for trust – you can see coefficients linking, say, low hemoglobin to high risk) research.cgu.edu. Decision trees or random forest might capture nonlinear interactions. Evaluate on hold-out set – ensure recall of high-risk cases is good (we prefer false alarms over misses in this scenario).
+
+● Risk Scoring: Convert model output to an easily understandable form. For example, a risk score 0-100, or categories: if probability > 0.7 then “High Risk”, 0.4-0.7 “Medium Risk”, else “Low Risk.” The UI for a health worker could list key contributing factors as well (“High risk mainly due to very low hemoglobin and high blood pressure”).
+
+● Interface Demo: Create a dummy profile input form and show how the system would flag risk. For hackathon demonstration, perhaps show two example profiles: one of a teenage mother with anemia – model outputs “High risk (score 85/100) – likely need intervention,” and another of a healthy adult mother – “Low risk (score 20/100).”
+
+● Validation with Domain Knowledge: Compare the model’s logic with known medical guidelines. If possible, incorporate existing scoring systems (like the WHO’s partograph risk criteria) as a reference. Even if data-driven training is minimal, showing alignment with expert knowledge adds credibility.
+
+● Impact: An AI-driven maternal health risk predictor would allow healthcare providers to prioritize limited resources for those pregnancies that need them most, potentially reducing maternal and infant mortality. By catching risk early (AI can signal need for extra tests or referrals), it contributes to the social good of healthier mothers and babies. This tool is especially valuable in rural outreach programs where one ASHA (community health worker) monitors many pregnancies – the AI can be her decision support ally.
+
+26. Smart Transportation & Road Safety – AI for Safer and Efficient Roads ####################################################################
+● Problem Brief: Urban areas like Bengaluru suffer from traffic congestion and accidents. Managing traffic flow manually is challenging, and responding to accidents or traffic rule violations (speeding, red light jumping) often comes after the fact. There’s scope for AI to optimize traffic signal timings based on real-time conditions, and to automatically detect accidents or risky situations on roads to enable faster emergency response. Traffic congestion costs productivity and accidents cost lives, so improvements here have significant social benefits.
+
+● Solution Approach: A combined approach:
+
+⊙ Traffic Management: Use AI to analyze live traffic camera feeds or sensor data (like vehicle counts) to adjust signal lights dynamically. For example, an algorithm processes CCTV at an intersection to count vehicle queue lengths and then decides to extend or shorten green light durations to reduce waiting time on congested sides. This could be a reinforcement learning model or a heuristic algorithm with machine vision.
+
+⊙ Accident/Incident Detection: Deploy computer vision on road CCTV or dashcam feeds to detect anomalies like accidents (e.g., a sudden stop or collision), vehicles going in wrong direction, or pedestrians on highways. When detected, an alert is sent to authorities (traffic police, ambulances). For hackathon feasibility, one can simulate with a recorded video or images of traffic. Perhaps demonstrate a simpler piece: counting cars in an image and deciding signal timing, and separately, detecting an accident in a video clip. We can use object detection to count vehicles, and some logic to determine phase timing. For accidents, maybe look at unusual motion (could use simple motion detection or a specialized model if dataset existed).
+
+● Datasets:
+
+⊙ Traffic camera data: If needed, Bangalore traffic datasets might have counts or imagesdata.opencity.in. We saw references to open traffic data (like counts or signal timings) on OpenCitydata.opencity.in which might not have images but stats. We might not need a large dataset: use an example image to demonstrate counting via YOLO (detect cars, bikes in an intersection image and count them).
+
+⊙ Accident detection data: There are dashcam accident datasets used in some research (some on Kaggle or open videos on YouTube showing accidents). If none readily, we could simulate detection by looking for a stopped car in an unusual place. Or use a sequence of frames to detect a sudden change (like one frame car present, next frame it’s toppled). Possibly skip heavy ML here and do a heuristic (like if a vehicle’s orientation changes abruptly).
+
+⊙ Traffic flow optimization data: Could simulate with known traffic patterns or use something like SUMO (traffic simulation software) output. But that’s heavy. Instead, show concept: e.g., if east-west has 20 cars waiting and north-south has 5, the AI would allocate more green time to east-west. That can be coded rule-based (use AI concept by saying we learned that more cars = more time).
+
+● Tools and Platforms: OpenCV for processing images and video. YOLOv5 or any pretrained object detector to detect and count vehicles (cars, motorbikes, buses) in frames. For counting, we could also use simple background subtraction on video and count moving blobs (OpenCV can do that). For optimization logic, a Python script or simple machine learning model (even a linear regression that predicts optimal green time given counts) could be made. If we attempt reinforcement learning, that’s complex to train realistically now, so maybe mention conceptually. For accident detection, perhaps train a simple image classifier: normal traffic vs accident (but data might be too scarce). Alternatively, use accelerometer data if conceptual – phones in vehicles detecting sudden G-forces, but skip that due to data.
+
+Implementation Steps
+● Vehicle Counting Demo: Take a sample traffic image (maybe from Bangalore, or any city intersection from web). Run YOLO detection to identify vehicles. Sum up by lane/direction (if known) or just total count. Print or overlay counts. Then apply a simple rule: e.g., “North-South: 5 vehicles, East-West: 15 vehicles. Thus, allocate green time ratio 1:3 for NS:EW.” Present how this adaptive scheduling would clear jam faster than fixed timing. We can show that after one cycle, counts reduce, etc., conceptually.
+
+● Accident Detection Demo: Possibly use a short video where a collision occurs (like two cars colliding in a clip). Use either a pre-trained action detection model or simpler: monitor movement via optical flow – a crash might show a large abrupt change (e.g., vehicles stop moving or unusual object shape appears). If using YOLO, after collision, maybe one detection is at an odd angle (flipped car which YOLO might still label as car). One hack: monitor vehicle speeds from frame differences – a sudden drop to zero combined with skewed bounding boxes could indicate crash. If we can’t do that reliably, an alternative is an audio-based approach: accidents often have a distinct sound (screech + bang). But that’s another modality and dataset. Given time, perhaps simplify by showing an “accident” image and a normal image, and using a classifier (even manually curated, e.g., accident images often show damaged vehicles) to differentiate.
+
+● Alert Mechanism: If accident is “detected”, output an alert: “Accident detected at Location X (via CCTV 12) – notifying emergency services.” Similarly for any anomaly (like a car going wrong way can be detected if its bounding box moves opposite direction of others – optical flow direction).
+
+● Integration: Discuss that these pieces would integrate into a city’s smart traffic system. We could mention an example: Bangalore has been exploring AI for traffic management – in fact, an AI-driven system (ASTraM) was used for congestion monitoring in Bengaluru. We can cite that as evidence of feasibility.
+
+● Impact: Smoother traffic reduces travel time, fuel consumption (environmental benefit), and stress for citizens. More importantly, quick accident detection and response save lives by getting help to the scene faster. Also, AI enforcement rules (like detecting violations) can improve road safety over time. This project thus contributes to safer, more livable cities – a direct social good in terms of safety, health, and productivity.
+
+27. Social Welfare Scheme Eligibility Chatbot ####################################################################
+● Problem Brief: Governments launch many welfare schemes (for healthcare, education, subsidies, etc.), but awareness and uptake are often low because people are not aware of what they qualify for or find the application process confusing. Especially in rural areas of India, citizens might not know about scholarships for their kids or agricultural subsidies they could get. Navigating government websites or paperwork is daunting for many. This leads to social benefits not reaching all who need them.
+
+● Solution Approach: Develop an AI-driven chatbot/assistant that helps individuals discover government schemes they are eligible for and guides them on how to apply. The user could interact in natural language (in Kannada or English), saying things like “I am a farmer with 2 hectares of land, any subsidies for me?” or “I have a girl child in 10th standard, what scholarships can we get?”. The assistant would parse the input, match it against a database of schemes (with eligibility criteria), and respond with relevant schemes and brief details. It could also answer FAQs about application steps. The AI component is mainly NLP for understanding queries and possibly a recommendation system for schemes. A simpler rule-based approach might suffice if we encode scheme criteria, but NLP would make it user-friendly. This idea leverages available open data about schemes and uses AI to personalize information delivery.
+
+● Datasets: Government Schemes Database: We need a structured list of schemes with eligibility fields (age, income, occupation, etc.). There is a Kaggle dataset “Indian Government Schemes” which likely compiles schemes across domains with descriptions. That could be a great starting point – it includes scheme name, sector, and maybe some details. Alternatively, one might scrape the government’s myScheme or data.gov.in for scheme info, but Kaggle likely did that.
+
+● Tools and Platforms: For the NLP part, if doing intent recognition, a simple approach is to use keyword matching or a classifier to classify query into categories (education, agriculture, health, etc.), then use a ruleset to fetch schemes. More advanced: use a Transformer QA model by giving it a context of scheme descriptions and asking question – but that might not reliably filter eligibility. Instead, a custom logic might be better given structured nature. Possibly use spaCy or NLTK for basic entity extraction (like identifying the user mentions “farmer” or “income” or numbers which indicate eligibility parameters). The knowledge base can be stored in a simple CSV/JSON and we query it. For demo, a conversational interface can be simulated by sequential prints in a script.\
+
+Implementation Steps:
+● Prepare Scheme Data: Using the Kaggle datasetkaggle.com or manual curation, prepare a small database of schemes with key eligibility info. E.g., a structure: {scheme_name: "Scholarship for SC/ST students", criteria: ["must be SC/ST", "Class 10-12 student"], sector: "education", benefit: "covers school fees", link: "application link..."}. Do this for ~10 schemes covering different sectors (agri, education, women & child, etc.).
+
+● User Query Understanding: We can implement a simple parser: e.g., look for keywords in user input that match fields. If user says “farmer”, that indicates occupation. If they mention “2 hectares land”, that indicates landholding. If “girl child 10th std”, indicates gender=female, education=class10. We can also have user answer a few questions in a flow if needed (the bot can ask “What is your occupation? What is your approx annual income?” etc. to gather profile). But to keep it short, one free-form input or a couple of them.
+
+● Matching Algorithm: Once we have user’s attributes, we go through the schemes and check eligibility. For example, if occupation=farmer and land <= 2ha, we might match “PM Kisan” scheme (which has criteria like small farmers). If user mentions girl child, match schemes geared to girl child education (like maybe the state’s conditional cash transfer for girls). We can score each scheme by how many criteria match. The top matches are returned.
+
+● Generate Response: The bot should respond with the scheme names and a brief description: “You might be eligible for: 1) Scholarship X – for Class 10-12 students from your community, provides Rs Y per monthkaggle.com. 2) Scheme Y – a subsidy for small farmers (under 5 acres) giving free seeds. ... For more details or to apply, visit ...”. If no scheme found: “No specific scheme found for the given details, but you may check the government portal for others.”
+
+Demo conversation: Simulate a user question and print the assistant’s answer. Possibly do 2 scenarios: one for a farmer query, one for an education query, to showcase range.
+
+● Multilingual aspect: Mention that the NLP could be extended to Kannada – for now, we handle English. Possibly show it handles a Hindi or Kannada word if in query (like user says “I am a kisan” and it knows kisan means farmer). That can be done by a small dictionary or using language detection then translation.
+
+● Impact: This assistant would empower citizens by connecting them to benefits they are entitled to but unaware of. It can increase uptake of welfare programs, ensuring the social good reaches the intended population. It also improves transparency and reduces dependence on middlemen (who sometimes exploit ignorance). In rural telecenters or even on WhatsApp, such a bot could answer questions 24/7 in local language. This directly contributes to social welfare and inclusion, by leveraging AI to bridge the information gap between government offerings and the people.
+
+28. Water Quality Monitoring System – Safeguarding Water with IoT and AI ####################################################################
+● Problem Brief: Contaminated water is a serious issue leading to health problems in many communities. Regular manual testing of water sources (lakes, wells, water supply) is labor-intensive and not timely. There’s a need for an automated system that can detect changes in water quality (pH, turbidity, etc.) and alert authorities to pollution or contamination events early. For example, in Delhi, lakes sometimes experience chemical spills or sewage inflows that cause fish die-offs and health hazards. Early detection could prevent usage of that water and spur cleanup.
+
+● Solution Approach: Implement an IoT-based water quality analyzer that continuously measures water parameters and uses AI to detect anomalies or predict trends. The system would use sensors (pH sensor, turbidity sensor, TDS – Total Dissolved Solids sensor, maybe temperature) connected to a microcontroller (like Arduino) that sends data periodically to a server. An AI component on the server analyzes this data: it could simply detect if any parameter crosses a threshold (anomaly detection), or more sophisticated, predict future parameter values (like a sudden drop in dissolved oxygen could predict fish kill). For hackathon, a realistic approach is to simulate sensor data (since actual hardware integration might be complex in the given time) and focus on the anomaly detection algorithm and alerting mechanism. This idea resonates with the upGrad example of a real-time water quality IoT projectupgrad.comupgrad.com.
+
+● Datasets: If looking for real water quality data, the Indian government’s water quality datasets (e.g., from CPCB’s National Water Monitoring Program) could be used data.opencity.indata.gov.in. These might have monthly or quarterly readings of different rivers/lakes (parameters like pH, BOD, etc.). Kaggle’s “Water Quality in India” datasetkaggle.com covers data from 17 states between 2021-2023 with parameters like pH, turbidity, etc., which could help understand normal ranges and anomalies.
+
+● Tools & Platforms: If actually connecting sensors, an Arduino could run and output to serial, and Python could read that (with libraries like PySerial). But for speed, maybe skip actual hardware and simulate by reading from a CSV of time-series data. Use scikit-learn or even simple statistical methods for anomaly detection (like a moving average and standard deviation to flag outliers). Possibly use K-Means or one-class SVM for anomaly detection if multiple parameters combined. For prediction, a small regression or ARIMA model could forecast parameter values 1 hour ahead. The interface could be a dashboard using something like Flask or Grafana to show live readings and a red alert if something goes out of range.
+
+Implementation Steps
+● Simulate Data Feed: Create a script that generates data points for say pH, turbidity every minute. For normal state, pH ~7 ±0.2 noise, turbidity ~1 NTU ± some noise. Introduce an anomaly event in the data (e.g., at time T, pH drops to 5 or turbidity shoots up to 10). Save this in a CSV or stream it line by line to mimic sensor streaming.
+
+● Anomaly Detection Algorithm: Compute running statistics (like a rolling mean and standard deviation) and if a new reading lies beyond, say, 3σ from the mean, flag it. Or train a one-class classification model on normal data so that when anomaly comes, it’s flagged as outlier. Since water quality standards exist (e.g., pH safe range 6.5-8.5), we can also set some rule-based thresholds according to those standards (refer data.gov.in). Combine multiple parameters logically – e.g., if turbidity jumps significantly while other factors remain, still consider it an anomaly.
+
+● Alert System: When an anomaly is detected, trigger an alert – could be as simple as printing “ALERT: Water quality deterioration detected at time X (pH dropped to 5.0)” to console, or sending an email/SMS if we integrate such an API. For demo, display prominently in output. Also, maintain a log of last normal reading vs current to contextualize.
+
+● Dashboard (Optional): If time permits, present the data in a plot that updates with each new point (using matplotlib animation or a web dashboard) to visualize how the parameter spiked. This will make it obvious to judges where the AI caught an issue.
+
+● Prediction (Optional): Try a simple forecast – e.g., if turbidity is rising steadily, predict it will exceed threshold in 10 minutes. But might skip this if anomaly detection alone is demonstrative enough.
+
+● Impact: Clean water is fundamental to public health. This system acts as an early warning for water contamination, allowing authorities to respond quickly – for instance, by issuing boil water advisories or closing a water source until fixed. It also enables continuous monitoring rather than periodic testing, so issues aren’t missed in between testsupgrad.comupgrad.com. In rural areas, such a low-cost monitoring could be installed on community wells or tanks to ensure safe drinking water. Overall, it leverages IoT and AI to protect a vital resource and prevent waterborne diseases, aligning strongly with social good goals.
+
+29. Problem Statements Include:  #############################################################
+
+1) The "Red Team" Cyber-Sentry
+Challenge: Develop an agent that autonomously identifies vulnerabilities in a provided codebase and suggests (or applies) patches.
+
+Context: Uses tools like nmap or Semgrep, interprets raw logs, and determines the next step in a penetration test loop.
+Agentic Edge: Chain-of-Thought Reasoning. Explaining why it pivots from one exploit attempt to another based on failed previous attempts.
+2) The Venture Capital "Scout" Agent
+Challenge: Build an agent that monitors social media, news, and GitHub trends to identify tech movements and draft investment memos.
+
+Context: Scrapes live data, filters "noise" vs. "signal," and autonomously "interviews" a mock founder (simulated by another LLM).
+Agentic Edge: Autonomous Information Foraging. Deciding which "rabbit holes" are worth following to form a conviction.
+3) The "Zero-Waste" Personal Chef & Shopper
+Challenge: An agent that manages nutrition by looking at "fridge photos," planning meals, and filling a grocery cart within a budget.
+
+Context: Uses Vision APIs to identify ingredients, prioritizes perishable items, and interfaces with mock delivery APIs to optimize costs.
+Agentic Edge: Constraint Satisfaction. Balancing inventory, nutrition, and real-time price fluctuations.
+4) The Crisis Response Coordinator
+Challenge: A simulation where an agent manages city resources (Police, Fire, EMS) during a natural disaster.
+
+Context: Prioritizes life-threatening calls from a stream, routes vehicles around traffic/roadblocks, and communicates instructions to citizens.
+Agentic Edge: Dynamic Replanning. Recalculating all active strategies immediately when new obstacles (e.g., a broken bridge) are reported.
+5) Multi-Agent Negotiation System
+Challenge: Develop a system where independent agents with conflicting goals (e.g., Buyer vs. Seller) negotiate optimal agreements.
+
+Context: Maintains shared history; each agent has a private "Red Line." Includes a "Mediator Agent" to ensure Pareto-efficient outcomes.
+Agentic Edge: Strategic Adaptation. Shifting tactics based on opponent sentiment and historical offers.
+6) Autonomous Financial Risk Monitoring Agent
+Challenge: An agent that continuously monitors financial indicators and autonomously adjusts risk strategies for a portfolio.
+
+Context: Detects anomalies, updates risk profiles, and simulates "Black Swan" scenarios with explainable decisions.
+Agentic Edge: Real-time Explainable Risk Modeling. Active, autonomous defense with natural language justifications.
+7) Ethical Decision-Making AI Agent
+Challenge: Design an agent that evaluates scenarios involving moral trade-offs and produces explainable decisions.
+
+Context: Handles uncertainty in resource allocation (e.g., hospital triage) while maintaining value-alignment constraints.
+Agentic Edge: Justifiable Reasoning. Providing ethically consistent justifications in high-stakes environments.
+Judging Criteria:
+
+Autonomy & Planning – 25%
+Tool Integration – 20%
+Security & Best Practices – 20%
+Robustness – 15%
+Technical Architecture – 10%
+Observability & Demo – 10%
+Event Timeline:
+
+Day 0 – Round 0 Submission Deadline
+Day 1 – Hackathon Kickoff & Development
+Day 2 – Final Submission & Grand Pitch
+Eligibility:
+
+Undergraduate & Postgraduate Students
+Team Size: 2–4 members
+Laptop mandatory
+Rules:
+
+No hardcoded outputs
+No plagiarism
+API keys must not be exposed
+Dynamic reasoning demonstration mandatory
+Judges' decision will be final
+Skills to Be Assessed:
+
+Artificial Intelligence
+Large Language Models (LLMs)
+Agentic AI
+Agent orchestration Framework
+API Integration
+RLHF(Reinforcement Learning from Human Feedback)
+Multi-Agent Systems
+Prompt Engineering
+System Design
+Cybersecurity Basics
+Full Stack Development
+
+
+30. Industry Use Cases ####################################################################
+AI Powered Intelligent Ticket Routing & Resolution Agent
+Enterprise Knowledge Assistant (RAG + Agentic Workflow)
+
+31. Here are problem statements:#############################################################
+
+1. Managing city data overload - A bustling metropolis like Bengaluru generates millions of scattered data points every minute — from traffic updates and civic issues to spontaneous cultural events. This information is noisy, siloed across different platforms, and becomes outdated almost instantly. The challenge is not just to report news, but to find the signal in the noise and create a living pulse of the city.
+
+2. Empowering teachers in multi-grade classrooms - In countless under-resourced schools across India, a single teacher often manages multiple grades in one classroom. These educators are stretched thin, lacking the time and tools to create localized teaching aids, address diverse learning levels, and personalize education for every child. The challenge is to build a true AI companion that lessens this burden and amplifies their impact.
+
+3.Improving safety at large public events - Large-scale public events like music festivals or rallies are incredibly complex to manage. The fluid dynamics of large crowds create significant risks, from dangerous bottlenecks and crushing to difficulties in locating individuals in medical distress. Security teams need a way to move from reactive monitoring to proactive, intelligent intervention.
+
+4. Providing farmers with expert help on demand - Rohan, a young farmer in rural Karnataka, inspects his tomato crop. A strange pattern of yellow spots has appeared on the leaves of several plants. Is it a fungus? A pest? The wrong kind of fertilizer? The local agricultural office is miles away, and by the time he gets an answer, a significant portion of his crop could be lost. He also faces another challenge: when to sell. The price he gets at the local mandi can vary wildly from day to day. A day's delay could mean the difference between profit and loss. He has a smartphone, but the information he needs—expert pest diagnosis, real-time market prices, and guidance on government subsidies—is scattered, complex, and not available in his native Kannada. He doesn't need more data; he needs an ally, an expert in his pocket who understands his land and his language.
+
+5.Receipt management for Google Wallet - The Challenge: Google Wallet is designed to provide fast, secure access to everyday essentials. However, managing physical receipts remains a cumbersome task for users, leading to lost records, difficulty tracking expenses, and an inability to leverage purchase data for personal benefit. There's a clear need for a seamless way to digitize, organize, and utilize receipt information directly within Google Wallet, enabling users to gain valuable insights into their spending habits and optimize their financial management.
+
+6. Let AI speak to your money (Fi Money MCP) - Fi Money has launched the world’s first consumer-facing personal finance MCP Server — an AI-native infrastructure layer that consolidates, normalises, and structures financial data across 18+ sources, allowing users to connect. AI today can answer general financial questions — but not yours. That’s because your financial life is scattered across banks, mutual funds, stocks, and more. Even the most intelligent AI can’t reason meaningfully without structured, secure access to real data. What’s missing is the infrastructure to connect an individual's complete financial footprint to AI in a way that respects privacy, promotes control, and works across platforms.
+While MCP (Model Context Protocol) exists in enterprise AI stacks, it has never been meaningfully applied to consumer finance — until now. 
+
+

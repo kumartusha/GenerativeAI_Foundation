@@ -1,0 +1,102 @@
+************************************************************************************************
+https://github.com/topics/lead-generation
+https://github.com/win8428/smartlead-mcp-server/blob/main/src/client/base.ts
+https://github.com/umur957/n8n-workflows?tab=readme-ov-file
+https://github.com/tohid-yousefi/Calculation-of-Lead-Generation-with-Rule-Based-Classification
+https://github.com/Awaisali36/50k-lead-generation-system/blob/main/Images/Apollo%20Lead%20Enrichment.png
+https://github.com/Awaisali36/Outbound-Real-State-Voice-AI-Agent-
+https://github.com/asiifdev/business-leads-ai-automation
+https://github.com/mukulsinghal001/lead-scoring-model-python
+https://github.com/Madi-S/Lead-Generation
+https://github.com/kaymen99/sales-outreach-automation-langgraph
+https://github.com/superryeti/Email-Crawler-Lead-Generator
+
+************************* Someone Projects **************************
+I recently wrapped up my work as an AI/ML Engineer Intern at DATAi2i, where I worked across product development and client-facing AI deployments, taking full ownership of systems end-to-end.
+
+Key Achievements
+1. Product Development: Graph-based RAG Chatbot
+ • Built a Streamlit-based Graph-RAG chatbot integrating Neo4j and LLMs for natural language → Cypher translation
+ • Designed an interactive query + graph visualization interface for exploring product–customer relationships
+ • Deployed Neo4j as a Docker container on AWS, ensuring portability and scalable retrieval performance
+
+2. Client Project: Airport Operations Forecasting
+ • Analyzed immigration and passenger queue datasets from GCP BigQuery to understand queue length and wait-time patterns
+ • Developed forecasting models (LightGBM, XGBoost, Random Forest), reducing prediction MAE from ~360s to ~120s
+ • Built a Streamlit analytics dashboard providing real-time queue forecasts and operational insights
+ • Deployed the full pipeline using GCP Cloud Run + BigQuery.
+ • Took complete lead on the project within one month, handling development, deployment, and client communication end-to-end
+
+3. Additional Contributions
+ • Built a Reflex-based RAG chatbot backed by Postgres for internal data retrieval workflows
+ • Developed a real-time analytics dashboard using Firebase for dynamic data updates and visualization
+
+This experience strengthened my ability to own products end-to-end from data to models to deployment, while working directly with real users and stakeholders.
+
+
+************************************ AQI Agent *********************************
+Absolutely! If you want this project to stand out on your resume, you can list enhancements that make it smarter, more personalized, and technically impressive. Here’s a structured list of potential enhancements:
+
+1. Advanced Prediction Enhancements
+
+Multi-step Forecasting: Predict AQI not just for today but 24–48 hours ahead using LSTM, GRU, or Prophet.
+
+Ensemble Models: Combine multiple models (time series + regression + weather features) for higher accuracy.
+
+Event-based Prediction: Include factors like festivals, traffic patterns, or construction which spike AQI.
+
+2. Personalization Features
+
+Health Profiles: Tailor recommendations for children, elderly, or people with respiratory issues.
+
+Activity-based Suggestions: Recommend when to exercise outdoors, when to use masks, or air purifiers.
+
+Geofencing: Provide advice for specific locations, e.g., home vs workplace.
+
+3. Real-time Data Integration
+
+IoT Sensor Integration: Collect live data from portable AQI sensors or smart home devices.
+
+Multi-source Data Fusion: Combine data from government sensors, satellite data, and weather APIs.
+
+Alerts System: Real-time push notifications if AQI spikes suddenly.
+
+4. Visualization & UI Enhancements
+
+Interactive Maps: Show AQI heatmaps of Gurugram in real-time.
+
+Trend Graphs: Display AQI trends, pollutant breakdowns, and predictions.
+
+Gamification / Engagement: Track user behavior (like staying indoors on hazardous days) and reward them.
+
+5. Intelligent Decision-making
+
+Risk Scoring: Score each day’s exposure based on predicted AQI and user profile.
+
+Recommendation Engine: Suggest best times for outdoor activities or air purifier usage.
+
+Adaptive Learning: Learn user behavior over time to improve suggestions.
+
+6. Technical & Resume-worthy Enhancements
+
+Cloud Deployment: Deploy your agent on AWS, GCP, or Azure for scalability.
+
+Mobile App Integration: Android/iOS app that interacts with the agent.
+
+Notification System: SMS, email, or push notifications based on AQI thresholds.
+
+Explainable AI: Show why a recommendation is made (e.g., “AQI predicted 420 → avoid outdoor exercise”).
+
+7. Optional “Wow” Features
+
+Predictive Health Impact: Estimate potential health risks for the day based on AQI and user data.
+
+Machine Learning Explainability: Visualize which factors (wind, traffic, temperature) most affect AQI.
+
+Integration with Smart Devices: Trigger smart air purifiers, AC, or masks automatically.
+
+💡 Tip for Resume: Phrase it like this:
+
+“Developed an AI-powered environmental agent that predicts AQI and provides personalized health recommendations; integrated real-time IoT sensors, predictive modeling, and interactive visualizations, deployed as a scalable cloud application.”
+
+This shows full-stack, AI, IoT, and UX skills all at once.

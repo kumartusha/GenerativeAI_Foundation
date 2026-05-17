@@ -295,3 +295,27 @@ youtube-transcript-api==0.6.2
 protobuf==6.31.1
 narwhals==2.1.0
 primp==0.15.0
+
+
+
+
+# Retail Sales Dashboard.
+
+numpy
+pandas
+pandasql
+gspread
+gspread-pandas
+google-auth
+google-auth-oauthlib
+google-cloud-bigquery
+gspread-dataframe
+pytz
+db-dtypes
+pandas
+requests
+tqdm
+openpyxl
+google-auth-httplib2
+google-api-python-client
+beautifulsoup4

@@ -1,0 +1,246 @@
+API Keys:-
+1. Sarvam AI API Key:-  sk_55qnyezj_cgK4wDu1jedC485bcIIYJa6Q
+
+
+
+
+MCP Projects:- 
+
+https://dev.to/copilotkit/30-mcp-ideas-with-complete-source-code-d8e
+https://github.com/punkpeye/awesome-mcp-servers
+
+A2A
+https://developers.google.com/workspace/add-ons/chat/quickstart-a2a-agent
+
+>> Find the small startups and build them like the below video.
+https://www.youtube.com/watch?v=lJ3Wt-ng1Ls
+
+>> Google Codelabs
+https://codelabs.developers.google.com/aidemy-multi-agent/instructions#5
+
+
+Langraph
+>> https://github.com/hmshb/scraping-agent-ai
+>> https://github.com/von-development/awesome-LangGraph
+
+Github Material:-
+1. https://github.com/Arindam200/awesome-ai-apps
+2. https://github.com/ashishpatel26/500-AI-Agents-Projects
+3. https://github.com/GURPREETKAURJETHRA/END-TO-END-GENERATIVE-AI-PROJECTS
+4. https://github.com/mohd-faizy/Agentic_AI_using_LangGraph
+
+Learning Resources:-
+1. https://www.vorithm.com/practice             (MIMP)
+2. https://pub.towardsai.net/rag-architectures-every-ai-developer-must-know-a-complete-guide-f3524ee68b9c
+3. https://docs.cloud.google.com/architecture/?category=aiandmachinelearning
+4. https://github.com/alirezadir/Agentic-AI-Systems/tree/main
+
+
+
+
+
+
+
+
+
+
+
+*********************************** Useful Prompts ******************************
+1. (For unaware businesses ideas)
+I am a 21-year-old AI/ML engineer with limited exposure to real-world business models. I want to understand how different types of businesses operate and identify opportunities that are not obvious or commonly discussed.
+
+Help me by:
+
+Explaining a variety of modern business models (including emerging ones like quick commerce, creator economy, SaaS, marketplaces, etc.).
+Breaking down how these businesses work in simple terms (revenue streams, cost structure, customer segments, and value creation).
+Providing real-world examples of companies using each model.
+Highlighting lesser-known or unconventional business ideas that are growing in today’s world.
+Identifying new and emerging trends where future business opportunities may exist.
+Teaching me important business concepts and terminology (like CAC, LTV, network effects, unit economics, etc.) in a beginner-friendly way.
+Suggesting a system or routine I can follow to continuously discover and learn about new business ideas and opportunities.
+
+Focus on practical, real-world insights and keep explanations beginner-friendly but insightful.
+
+
+
+2. For building the platforms.
+
+I want to design and build a complete AI-powered interview system from scratch. Help me create an end-to-end solution with production-level architecture and implementation details.
+
+The system should include:
+
+1. Core Features
+Conduct automated interviews (text + voice-based)
+Ask dynamic, role-specific questions
+Adapt questions based on candidate responses
+Evaluate candidate answers using AI
+Provide scoring, feedback, and hiring recommendations
+2. Candidate Experience
+User authentication and profile creation
+Resume upload and parsing
+Interview scheduling or instant interview option
+Real-time interaction (chat or voice)
+Feedback/report after interview
+3. AI Capabilities
+Natural language understanding for answers
+Context-aware follow-up questions
+Sentiment and confidence analysis
+Skill extraction and scoring
+Anti-cheating / proctoring considerations
+4. Tech Stack Suggestion
+
+Provide recommendations for:
+
+Frontend (web/mobile)
+Backend APIs
+AI/LLM integration
+Database design
+Real-time communication (for voice/chat)
+5. System Design
+High-level architecture diagram (explained in text)
+Microservices vs monolith decision
+Data flow (candidate → AI → evaluation → report)
+Scalability considerations
+6. Implementation Plan
+Step-by-step roadmap (MVP → production)
+Key modules to build first
+Suggested timelines
+7. Sample Components
+Example interview flow
+Sample prompts for AI interviewer
+Evaluation rubric for answers
+8. Advanced Features (Optional)
+Video interviews with emotion detection
+Multilingual support
+Integration with ATS systems
+Analytics dashboard for recruiters
+
+Make the solution practical, detailed, and implementation-ready. Avoid high-level generic explanations.
+
+
+3. For Learning the RAG pipeline design for the customer support ************************
+They didn't ask me about models in my AI engineering interview.
+They asked me about systems.I wasn't ready.
+
+The question that caught me:
+"Walk me through how you'd design a RAG pipeline for a customer support product used by 100k users daily."
+
+I knew what RAG was. I'd built RAG systems.
+
+But I spent the first two minutes talking about embeddings and retrieval.
+They wanted to know what breaks first under load.
+They wanted to know how I'd measure if it was getting worse over time.
+They wanted to know what I'd do when the model returns something confidently wrong.
+
+I hadn't prepared for any of that.
+
+Afterward, one interviewer told me:
+"Most candidates know the tools. Very few can design a system around the tools."
+
+That line stayed with me.
+
+What AI engineering interviews are actually testing:
+- System design with AI components - not just ML knowledge
+- Failure modes - what breaks, how it breaks silently, how you'd catch it
+- Evaluation thinking - how you'd know the system is degrading before users do
+- Tradeoff reasoning - RAG vs fine-tuning, sync vs async, latency vs quality
+- Projects you broke - not just built
+
+The technical bar is real.
+But it's not what separates the candidates who get offers.
+
+Engineering judgment is.
+Build real things. Break them intentionally. Be ready to talk about both.
+
+What's the hardest AI engineering interview question you've faced?
+#AIEngineering #CareerGrowth #InterviewPrep
+
+
+4. #######################       RAG pipeline design       #############################
+Your RAG system is not slow because of the LLM.
+It is slow because your pipeline is broken.
+
+People blame hallucinations.
+They blame embeddings.
+They blame the model.
+
+But real RAG lives in the layers between them.
+I created this RAG Complete Cheatsheet to show how a production RAG system actually works, end to end 👇 
+
+RAG is not one step. It is a system:
+→ Indexing (Offline)
+↳ Load PDFs, docs, web pages
+↳ Chunk them correctly
+↳ Convert them into embeddings
+↳ Store them in a vector database
+
+→ Retrieval (Real-time)
+↳ User query → embedding
+↳ Search vector DB
+↳ Apply hybrid search (BM25 + vectors)
+↳ Filter with metadata
+↳ Select Top-K
+
+→ Re-ranking
+↳ First pass retrieves fast
+↳ Second pass re-orders with a reranker
+↳ Best chunks rise to the top
+
+→ Generation
+↳ LLM sees only the retrieved context
+↳ Prompt enforces grounding
+↳ Answer is generated from facts, not memory
+
+→ Evaluation & Observability
+↳ Precision, Recall, MRR
+↳ Faithfulness, Answer relevance
+↳ RAGAS, TruLens, DeepEval
+
+→ Advanced RAG
+↳ Multi-Query RAG
+↳ Self-RAG (self-correction)
+↳ Agentic RAG
+↳ GraphRAG for multi-hop reasoning
+
+→ Production Layer
+↳ Caching (Redis)
+↳ Security and PII handling
+↳ Cost and latency tracking
+↳ Re-indexing and freshness
+
+This cheatsheet puts all of this in one place
+from chunking → embeddings → retrieval → reranking → LLM → evaluation → production 
+
+RAG is not “documents in → answer out”.
+RAG is search + reasoning + verification + systems engineering.
+
+If you are building AI that has to be trusted in the real world, this is the map you need.
+
+If you want to clear AI interviews 99% confidently, this Interview Kit is for you
+Learn in depth → Practice → Perform → Crack the job
+Enroll here: https://lnkd.in/gN-XSwbH
+
+
+4. #######################       RAG Interview design       #############################
+𝐙𝐞𝐫𝐨𝐝𝐡𝐚 𝗮𝘀𝗸𝗲𝗱 𝘁𝗵𝗶𝘀 𝗶𝗻 𝐋𝟐 𝐫𝐨𝐮𝐧𝐝 𝐨𝐟 𝐀𝐈 𝐄𝐧𝐠𝐢𝐧𝐞𝐞𝐫 𝐑𝐨𝐥𝐞.
+
+In financial RAG, accuracy isn’t nice-to-have, it’s everything.
+
+You’re building RAG for financial PDFs. Missing a single number from search can cost millions. What is the best search method?
+
+Answer:
+- Use hybrid search, it’s the baseline for high-stakes data.
+- Combine BM25 (keyword) + semantic search → exact numbers + contextual meaning
+- Merge results using RRF (Reciprocal Rank Fusion)
+- Add a reranker (e.g., Cohere Rerank) to push the most relevant chunk to the top
+- Use layout-aware chunking (tables intact) and metadata filtering (company, quarter, doc type)
+- Apply multi-query expansion to improve recall
+- Always cite sources for every number
+
+In finance, retrieval is risk management—hybrid search + reranking is the minimum bar.
+
+5. ###################### The next big opportunity areas? ########################
+✅ Fleet digitisation
+✅ Connected vehicles
+✅ EV-led logistics
+✅ AI-driven fleet optimisation
