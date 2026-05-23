@@ -840,3 +840,82 @@ Enterprise Knowledge Assistant (RAG + Agentic Workflow)
 While MCP (Model Context Protocol) exists in enterprise AI stacks, it has never been meaningfully applied to consumer finance — until now. 
 
 
+
+
+32 Wadhwani AI Hackathons Challenges #########################################################
+
+3.1
+Access to skilling and career pathways
+Challenge
+Learners from rural, low-income, first-generation, and other socio-economically disadvantaged backgrounds often face barriers in accessing quality skilling opportunities, career pathways, digital resources, and support systems. These barriers show up across the funnel: lower enrolment in skilling programmes, higher dropout, weaker placement outcomes, and slower wage growth.
+
+Who is Affected
+Learners from disadvantaged backgrounds, rural communities
+
+Key Considerations
+Access
+Affordability
+Digital inclusion
+Language
+Learner support
+
+3.2
+Job readiness and entrepreneurial skills
+Challenge
+Many learners complete programmes without developing the applied, industry-relevant, and entrepreneurial capabilities needed to succeed in employment, self-employment, and livelihood pathways. There is often a gap between credentials earned and capabilities demonstrated.
+
+Who is Affected
+Students, graduates, employers, educational institutions
+
+Key Considerations
+Employability
+Real-world readiness
+Applied learning
+Entrepreneurship
+Outcome orientation
+
+3.3
+Skills assessment and proficiency signaling
+Challenge
+Assessment systems often do not adequately capture what learners can actually do. This makes it harder to identify skill gaps, guide improvement, and signal readiness in ways that are meaningful to both learners and employers.
+
+Who is Affected
+Learners, employers, educational institutions
+
+Key Considerations
+Practical assessment
+Feedback loops
+Credibility
+Improvement pathways
+Usability
+
+3.4
+Faculty and trainer capacity
+Challenge
+Faculty and trainers often lack timely support, tools, and feedback loops to update content, teach applied skills effectively, and respond to changing labour market needs. Professional support systems may not be agile enough to keep pace.
+
+Who is Affected
+Faculty, trainers, students, industry
+
+Key Considerations
+Industry relevance
+Continuous upskilling
+Ease of use
+Practical application
+Scalability
+3.5
+Education-to-employment pathways
+Challenge
+Learners often face fragmented journeys across institutions, credentials, career guidance, assessments, apprenticeships, employers, and lifelong learning opportunities. This makes transitions confusing, inefficient, and unequal.
+
+Who is Affected
+Learners, employers, educational institutions, career counselors
+
+Key Considerations
+Pathway visibility
+Transitions
+Coordination
+Guidance
+Lifelong learning
+
+
