@@ -919,3 +919,30 @@ Guidance
 Lifelong learning
 
 
+
+33. ******************************** AI Engineer Learning Material ****************************
+🚀 We’re Hiring: AI Engineers & AI Interns!
+Excited to share that my team is expanding and we are looking for passionate minds to join us in building the next generation of intelligent solutions! We have openings for both AI Engineers (2-3 years of experience) and curious AI Engineer Interns.
+If you are obsessed with moving past basic prompt chaining into the world of agentic workflows, stateful multi-agent systems, and production-grade advanced RAG, this is the place for you.
+💻 Tech Stack & Tools we work with:
+• Core: Python, PyTorch
+• Agentic Frameworks: LangGraph, LlamaIndex Workflows, DSPy, CrewAI / AutoGen
+• Vector Databases: Qdrant, Pinecone (Serverless), pgvector, LanceDB
+• Protocols & Optimization: Model Context Protocol (MCP), Local fine-tuning & inference (MLX, Unsloth, lmstudio, vllm, ollama, etc) 
+🌱 What we’re looking for:
+For AI Engineers (2-3 YOE):
+• Proven experience building and deploying scalable, stateful multi-agent architectures (preferably using LangGraph or advanced event-driven workflows).
+• Heavy hands-on experience with production-grade RAG pipelines, payload filtering, and hybrid search optimization using Qdrant, Pinecone, or pgvector.
+• Deep understanding of algorithmic prompt optimization and compilation tools like DSPy.
+• Ability to optimize model latency, manage context windows efficiently, and handle production data pipelines.
+For AI Interns:
+• Strong programming fundamentals in Python.
+• High curiosity for modern Generative AI paradigms (Agentic AI, Vector search, and Tool Use).
+• A self-starting, problem-solving mindset with a drive to learn complex frameworks quickly.
+✨ What you’ll gain:
+• Practical exposure to shipping state-of-the-art agentic AI features to production.
+• Direct mentorship and guidance from experienced engineers pushing the boundaries of LLM tech.
+• A fast-paced, high-impact environment where your code directly shapes product capabilities.
+If this sounds like you (or someone you know), feel free to reach out or drop your resume to
+
+
