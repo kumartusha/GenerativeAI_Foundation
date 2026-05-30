@@ -58,12 +58,17 @@ load_dotenv(dotenv_path=env_path)
 #             "Choose from 'groq', 'azure', or 'openai'."
 #         )
 
+# Disable LangSmith tracing to suppress 403 Forbidden warnings
+os.environ["LANGCHAIN_TRACING_V2"] = "false"
+
 # Default LLM instance used across the application
 # llm = get_llm("groq")
 
 llm = ChatGroq(
-    model="openai/gpt-oss-120b",
+    model="meta-llama/llama-4-scout-17b-16e-instruct",
     api_key=os.getenv("GROK_API_KEY") or os.getenv("GROQ_API_KEY"),
     timeout=120,
     temperature=0.7,
+    max_tokens=4096,
+    max_retries=3,
 )

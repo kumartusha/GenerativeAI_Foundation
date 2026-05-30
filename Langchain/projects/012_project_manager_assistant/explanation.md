@@ -135,9 +135,9 @@ The project follows a **clean modular architecture** where each file has a singl
 
 ---
 
-## ⚙️ Complete Workflow — How It Works Under the Hood
+## ⚙️ Complete Execution Workflow & File Flow
 
-### Phase 0: Initialization
+When you run `python3 main.py`, the following sequence of events occurs:
 
 1. **Environment Setup** (`config.py`):
    - Loads `.env` file with API keys using `python-dotenv`
@@ -270,6 +270,17 @@ This creates a **self-improving feedback loop** that stops when:
 
 ---
 
+## 🛠️ Tool Calling & Structured Output
+
+To force the Large Language Model to behave deterministically and output structured data instead of conversational text, this project uses **LangChain's Structured Output functionality**, acting as a pseudo-tool call.
+
+1. **Pydantic Schemas (`models.py`)**: Every step has a strict Pydantic model (e.g., `TaskList`, `Schedule`, `TaskAllocation`). These define the exact keys and data types expected.
+2. **JSON Mode (`nodes.py`)**: We use `llm.with_structured_output(Schema, method="json_mode")`.
+3. **Explicit Prompting**: Open-source models on free tiers (like Llama 4 Scout) can sometimes fail to map internal schema definitions perfectly. To ensure robust "tool calling" execution without native function calling features, we inject explicit JSON structural examples directly into the prompt (escaped properly with `{{` and `}}` in Python f-strings).
+4. **Retry Mechanism**: A custom `retry_invoke` function wraps the structured output calls. If the LLM generates invalid JSON or hallucinates keys, or if the API hits a rate limit, the wrapper catches the exception and handles backoff/retries automatically.
+
+---
+
 ## 🔮 Future Enhancements (Real-World Production)
 
 ### 1. 🌐 Web Application Interface
@@ -369,3 +380,31 @@ python main.py
 ---
 
 *Built with ❤️ using LangChain + LangGraph + Groq*
+
+---
+
+## 💡 Key Learnings & Troubleshooting
+
+Throughout the development and refinement of this Project Manager Assistant, we encountered and resolved several critical challenges. These learnings are essential for anyone building production-grade LLM applications on free-tier APIs:
+
+### 1. Handling API Rate Limits Gracefully
+- **Challenge:** The free-tier Groq API enforces strict Tokens-Per-Minute (TPM) and Tokens-Per-Day (TPD) limits. Models like `llama-3.3-70b-versatile` hit the rate limit instantly during the multi-node workflow due to the high context window usage in iterative planning.
+- **Solution:** Switched to the `meta-llama/llama-4-scout-17b-16e-instruct` model, which offers a generous 500K TPD and 30K TPM limit. Furthermore, we implemented a custom `retry_invoke()` wrapper in `nodes.py` that catches `429 RateLimitError` exceptions, parses the "try again in X seconds" message, and dynamically sleeps before retrying. 
+
+### 2. Pydantic Schema Validation & LLM Hallucinations
+- **Challenge:** LangChain's `with_structured_output` maps LLM output to Pydantic models. However, open-source models occasionally modify keys slightly (e.g., outputting the plural `"estimated_days"` instead of the singular `"estimated_day"`), leading to `OutputParserException` failures.
+- **Solution:** 
+  - **Schema Alignment:** We renamed fields in `models.py` (e.g., `estimated_day` -> `estimated_days`) to align with the natural grammatical inclinations of the LLM.
+  - **Explicit Structuring:** Relying purely on implicit schema passing is not enough for smaller models. We embedded strict JSON templates directly into the prompt instructions to force exact structural compliance.
+
+### 3. Escaping Brackets in Python f-strings
+- **Challenge:** When injecting explicit JSON examples into prompt templates formatted as Python f-strings (e.g., `f"""..."""`), the curly braces `{}` used for JSON objects were interpreted as variable injection placeholders by Python, causing `ValueError: Invalid format specifier`.
+- **Solution:** We doubled all literal curly braces to `{{` and `}}` within the f-string prompts. This ensures Python treats them as string literals while allowing normal `{variable}` injection elsewhere in the prompt.
+
+### 4. Bypassing Optional Tracing Overheads
+- **Challenge:** The pipeline initially threw `403 Forbidden` errors related to the LangSmith API.
+- **Solution:** Because we were running the pipeline locally without an active LangSmith API key or project set up, we explicitly disabled tracing in `config.py` (`os.environ["LANGCHAIN_TRACING_V2"] = "false"`), preventing unnecessary network crashes.
+
+### 5. Managing Iteration Complexity
+- **Challenge:** Running too many workflow iterations (e.g., `max_iteration=3`) multiplied token usage drastically, causing both slow execution and API throttling.
+- **Solution:** Lowered the default `max_iteration` to 2. This proved sufficient for the agent to generate an initial plan and perform one solid pass of insight-driven optimization without exhausting API limits.

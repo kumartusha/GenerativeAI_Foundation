@@ -10,6 +10,10 @@ Node Pipeline:
     → risk_assessor → (router) → insight_generator → task_scheduler (loop)
 """
 
+import re
+import time
+from groq import RateLimitError
+
 from config import llm
 from state import AgentState
 from models import (
@@ -19,6 +23,25 @@ from models import (
     TaskAllocationList,
     TaskList,
 )
+
+
+def retry_invoke(runnable, prompt, max_retries=3):
+    """Invoke a runnable with automatic retry on Groq rate limit errors.
+    
+    Parses the retry-after time from the error message and waits
+    before retrying, up to max_retries attempts.
+    """
+    for attempt in range(max_retries):
+        try:
+            return runnable.invoke(prompt)
+        except RateLimitError as e:
+            if attempt == max_retries - 1:
+                raise
+            # Extract wait time from error message (e.g., "try again in 35.33s")
+            match = re.search(r"try again in (\d+\.?\d*)s", str(e))
+            wait_time = float(match.group(1)) + 1 if match else 40
+            print(f"    ⏳ Rate limited. Waiting {wait_time:.0f}s before retry {attempt + 2}/{max_retries}...")
+            time.sleep(wait_time)
 
 
 # ──────────────────────────────────────────────
@@ -43,10 +66,20 @@ def task_generation_node(state: AgentState):
         2. **Refine Long-Term Tasks:**
             - For any task estimated to take longer than 5 days, break it down into smaller, independent sub-tasks.
         **Requirements:** - Ensure each task is clearly defined and achievable.
-            - Maintain logical sequencing of tasks to facilitate smooth project execution."""
+            - Maintain logical sequencing of tasks to facilitate smooth project execution.
+        Respond with valid JSON only, using exactly the following structure:
+        {{
+            "tasks": [
+                {{
+                    "task_name": "Task Name",
+                    "task_description": "Detailed description",
+                    "estimated_days": 5
+                }}
+            ]
+        }}"""
 
-    structure_llm = llm.with_structured_output(TaskList)
-    tasks: TaskList = structure_llm.invoke(prompt)
+    structure_llm = llm.with_structured_output(TaskList, method="json_mode")
+    tasks: TaskList = retry_invoke(structure_llm, prompt)
     return {"tasks": tasks}
 
 
@@ -69,10 +102,20 @@ def task_dependency_node(state: AgentState):
             1. **Identify Dependencies:**
                 - For each task, determine which other tasks must be completed before it can begin (blocking tasks).
             2. **Map Dependent Tasks:** 
-                - For every task, list all tasks that depend on its completion.
+                - For every task, list the NAMES of tasks that depend on its completion.
+        IMPORTANT: Use only task NAMES (strings), not full task objects. Keep the output concise.
+        Respond with valid JSON only, using exactly the following structure:
+        {{
+            "dependencies": [
+                {{
+                    "task_name": "Task Name",
+                    "dependent_task_names": ["Dependent Task 1", "Dependent Task 2"]
+                }}
+            ]
+        }}
         """
-    structure_llm = llm.with_structured_output(DependencyList)
-    dependencies: DependencyList = structure_llm.invoke(prompt)
+    structure_llm = llm.with_structured_output(DependencyList, method="json_mode")
+    dependencies: DependencyList = retry_invoke(structure_llm, prompt)
     return {"dependencies": dependencies}
 
 
@@ -105,9 +148,25 @@ def task_scheduler_node(state: AgentState):
                 - Try not to increase the project duration compared to previous iterations.
             2. **Incorporate Insights:** 
                 - Utilize insights from previous iterations to enhance scheduling efficiency and address any identified issues.
+        
+        Respond with valid JSON only, using exactly the following structure:
+        {{
+            "schedule": [
+                {{
+                    "task": {{
+                        "id": "T1",
+                        "task_name": "Task Name",
+                        "task_description": "Description",
+                        "estimated_days": 5
+                    }},
+                    "start_day": 1,
+                    "end_day": 5
+                }}
+            ]
+        }}
         """
-    schedule_llm = llm.with_structured_output(Schedule)
-    schedule: Schedule = schedule_llm.invoke(prompt)
+    schedule_llm = llm.with_structured_output(Schedule, method="json_mode")
+    schedule: Schedule = retry_invoke(schedule_llm, prompt)
     state["schedule"] = schedule
     state["schedule_iteration"].append(schedule)
     return state
@@ -146,9 +205,27 @@ def task_allocation_node(state: AgentState):
                 **Constraints:** 
                     - Each team member can handle only one task at a time. 
                     - Assignments should respect the skills and experience of each team member.
+        
+        Respond with valid JSON only, using exactly the following structure:
+        {{
+            "task_allocations": [
+                {{
+                    "task": {{
+                        "id": "T1",
+                        "task_name": "Task Name",
+                        "task_description": "Description",
+                        "estimated_days": 5
+                    }},
+                    "team_member": {{
+                        "name": "Alice",
+                        "profile": "Developer"
+                    }}
+                }}
+            ]
+        }}
         """
-    structure_llm = llm.with_structured_output(TaskAllocationList)
-    task_allocations: TaskAllocationList = structure_llm.invoke(prompt)
+    structure_llm = llm.with_structured_output(TaskAllocationList, method="json_mode")
+    task_allocations: TaskAllocationList = retry_invoke(structure_llm, prompt)
     state["task_allocations"] = task_allocations
     state["task_allocations_iteration"].append(task_allocations)
     return state
@@ -185,9 +262,24 @@ def risk_assessment_node(state: AgentState):
             - If the task is assigned to a more senior person - assign lower risk score for the tasks
             3. **Calculate Overall Project Risk:**
             - Sum the individual task risk scores to determine the overall project risk score.
+        
+        Respond with valid JSON only, using exactly the following structure:
+        {{
+            "risks": [
+                {{
+                    "task": {{
+                        "id": "T1",
+                        "task_name": "Task Name",
+                        "task_description": "Description",
+                        "estimated_days": 5
+                    }},
+                    "score": "5"
+                }}
+            ]
+        }}
         """
-    structure_llm = llm.with_structured_output(RiskList)
-    risks: RiskList = structure_llm.invoke(prompt)
+    structure_llm = llm.with_structured_output(RiskList, method="json_mode")
+    risks: RiskList = retry_invoke(structure_llm, prompt)
 
     # Compute aggregate project risk score
     project_task_risk_scores = [int(risk.score) for risk in risks.risks]
@@ -232,5 +324,5 @@ def insight_generation_node(state: AgentState):
                 - Ensure that all recommendations aim to reduce the overall project risk score.
                 - Provide clear and actionable suggestions that can be implemented in subsequent iterations.
         """
-    insights = llm.invoke(prompt).content
+    insights = retry_invoke(llm, prompt).content
     return {"insights": insights}

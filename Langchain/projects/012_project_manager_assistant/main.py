@@ -81,7 +81,7 @@ def main():
         "team": team,
         "insights": "",
         "iteration_number": 0,
-        "max_iteration": 3,
+        "max_iteration": 2,
         "schedule_iteration": [],
         "task_allocations_iteration": [],
         "risks_iteration": [],

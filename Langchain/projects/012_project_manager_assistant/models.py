@@ -31,7 +31,7 @@ class Task(BaseModel):
     )
     task_name: str = Field(description="Name of the task")
     task_description: str = Field(description="Description of the task")
-    estimated_day: int = Field(
+    estimated_days: int = Field(
         description="Estimated number of days to complete the task",
     )
 
@@ -46,9 +46,11 @@ class TaskList(BaseModel):
 # ──────────────────────────────────────────────
 
 class TaskDependency(BaseModel):
-    """Maps a task to its dependent (downstream) tasks."""
-    task: Task = Field(description="Task")
-    dependent_tasks: List[Task] = Field(description="List of dependent tasks")
+    """Maps a task to its dependent (downstream) tasks using names."""
+    task_name: str = Field(description="Name of the task")
+    dependent_task_names: List[str] = Field(
+        description="List of names of tasks that depend on this task",
+    )
 
 
 class DependencyList(BaseModel):
