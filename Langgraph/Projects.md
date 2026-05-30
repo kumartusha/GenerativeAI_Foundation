@@ -7,6 +7,9 @@
 
 4. Wow. This is a real-time webcam demo built with HuggingFace SmolVLM and llama.cpp. 
 
+5. Hackathons Project.
+--> https://devpost.team/google-cloud-for-startups/hackathons/3197?register=true#search=Projects
+
 What it enables:
 • Live video processing without cloud dependencies
 • Visual understanding directly on consumer hardware

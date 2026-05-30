@@ -1,0 +1,154 @@
+Refactor my codebase into a clean monolithic architecture inside the `012_project_manager` folder.
+
+Requirements:
+
+1. Refactor the entire project structure properly while keeping the application fully functional.
+2. Follow clean coding principles and industry-standard monolithic architecture practices.
+3. Separate concerns clearly:
+
+   * controllers
+   * services
+   * repositories/data layer
+   * routes
+   * middleware
+   * utils/helpers
+   * config
+   * models
+   * validations
+   * constants
+4. Remove duplicated logic and improve maintainability/readability.
+5. Improve naming conventions, folder structure, and modularity.
+6. Add proper comments only where necessary and keep the code production-ready.
+7. Optimize imports, error handling, and API response structure.
+8. Ensure scalability so new modules/features can easily be added later.
+9. Keep environment configuration secure and organized.
+10. Create or update an `explanation.md` file in detail.
+
+The `explanation.md` file must include:
+
+# Project Overview
+
+* Clear project statement
+* Problem the project solves
+* Real-world use case
+* Why this solution matters
+
+# Impact of the Solution
+
+* Business impact
+* User impact
+* Scalability impact
+* Productivity improvements
+* Real-world practical value
+
+# Technical Architecture
+
+Explain the complete monolithic architecture in detail:
+
+* Folder structure
+* Module responsibilities
+* Request lifecycle
+* API flow
+* Authentication/authorization flow
+* Database interaction flow
+* Error handling flow
+* Validation flow
+* Service layer workflow
+* How components communicate internally
+
+# Under-the-Hood Workflow
+
+Explain step-by-step how the system works internally:
+
+1. Client request
+2. Routing
+3. Middleware execution
+4. Validation
+5. Controller handling
+6. Service/business logic
+7. Database interaction
+8. Response formatting
+9. Error handling mechanism
+
+Include workflow diagrams in markdown if possible.
+
+# Engineering Decisions
+
+Explain:
+
+* Why monolithic architecture was chosen
+* Advantages and tradeoffs
+* Design patterns used
+* Scalability considerations
+* Maintainability strategy
+
+# Future Enhancements
+
+Suggest realistic future improvements such as:
+
+* microservices migration possibilities
+* caching
+* queue systems
+* websocket support
+* monitoring/logging
+* CI/CD
+* containerization
+* testing improvements
+* cloud deployment
+* security hardening
+* performance optimization
+* AI integrations (if relevant)
+
+# Resume Summary
+
+Write a professional resume-ready summary including:
+
+* project purpose
+* technologies used
+* architecture style
+* backend/frontend responsibilities
+* scalability and optimization work
+* key engineering achievements
+* production-level improvements
+
+# Tech Stack
+
+Clearly explain:
+
+* frontend technologies
+* backend technologies
+* database
+* authentication
+* deployment possibilities
+* development tools
+
+# Code Quality Improvements
+
+Document:
+
+* refactoring improvements made
+* architectural improvements
+* performance improvements
+* maintainability improvements
+* security improvements
+* developer experience improvements
+
+# Final Deliverables
+
+Mention:
+
+* refactored codebase
+* improved architecture
+* detailed documentation
+* production-ready structure
+* scalable monolithic design
+
+Make the entire documentation highly professional, detailed, and suitable for:
+
+* GitHub portfolio
+* technical documentation
+* client delivery
+* interview explanation
+* resume/project showcase
+
+Also ensure the final architecture and explanation reflect how a real production-grade system works internally.
