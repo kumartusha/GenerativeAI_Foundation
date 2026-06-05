@@ -295,3 +295,11 @@ This project demonstrated how to bridge the gap between experimental AI scripts 
 - **Detailed Documentation:** This comprehensive breakdown, workflow diagrams, and architectural explanations suitable for client delivery and portfolio showcasing.
 - **Resume-Ready Content:** Clear impact metrics, interview talking points, and tailored summaries for technical recruitment.
 - **Future Roadmap:** A defined path for scaling the monolith into an asynchronous event-driven architecture using Redis and Celery.
+
+## 14. Interview Explanation Version
+
+A persistent inefficiency in sales organizations is the manual QA of customer calls, which is incredibly time-consuming and often subjective. Sales reps and managers lack the bandwidth to listen to hours of audio to extract actionable CRM insights, leading to lost data and missed revenue opportunities. To solve this, I architected the AI-Powered CRM Call Analyzer—a production-grade FastAPI microservice that autonomously transcribes audio and extracts structured CRM entities.
+
+Technically, I transitioned a fragile procedural script into a clean monolithic architecture, strictly separating the transport layer from the business logic. I integrated Groq's high-speed Llama-3 models via CrewAI to process transcripts using specialized AI agents. The key architectural breakthrough was shifting away from fragile string-parsing regex to deterministic structured outputs; by hooking CrewAI into Pydantic models, I mathematically enforced that the LLM output conforms perfectly to our required JSON schema, completely eliminating downstream parsing crashes.
+
+The delivered business value is a highly scalable, real-time data extraction pipeline that drastically reduces manual data entry and QA overhead. By automating the transcription and deep-analysis of sales calls into structured, database-ready CRM insights in mere seconds, the system vastly improved data integrity and empowered sales teams with immediate, actionable intelligence.

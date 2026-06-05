@@ -80,6 +80,81 @@ flowchart TD
 ## 📄 Resume‑Ready Summary
 > **AI Academic Research Assistant (LangChain + LangGraph + Groq)** – Designed and delivered a fully autonomous research engine that automates literature search, PDF extraction, and citation‑rich synthesis. Implemented a cyclic graph workflow with decision, planning, execution, and self‑validation nodes, allowing up to two iterative refinements. Integrated the CORE open‑access API, `pdfplumber` for PDF parsing, and Groq’s high‑throughput LLM for function calling, cutting literature‑review turnaround time by > 70 % versus manual processes.
 
+### Key Learnings
+
+1.  **State Management**: Utilizing `TypedDict` for the state allowed for clear and structured sharing of information between nodes.
+2.  **Modular Design**: Breaking down the workflow into distinct nodes (decision making, planning, agent, judge) improved code organization and maintainability.
+3.  **Conditional Logic**: Implementing conditional edges (`router`, `should_continue`, `final_answer_router`) enabled dynamic and flexible execution paths based on the context.
+4.  **Self-Reflection**: Adding a `judge_node` for self-evaluation significantly improved the quality and reliability of the final output.
+
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│               ┌──────────────────────────┐                  │
+│               │  decision_making_node    │                  │
+│               └─────────────┬────────────┘                  │
+│                             │                               │
+│            ┌────────────────┴────────────────┐              │
+│            │          Router                 │              │
+│            │  (requires_research == True?)   │              │
+│            └──────┬───────────────────┬──────┘              │
+│                   │                   │                     │
+│               [True]               [False]                  │
+│                   │                   │                     │
+│                   ▼                   │                     │
+│  ┌────────▶┌─────────────┐            │                     │
+│  │         │planning_node│            │                     │
+│  │         └──────┬──────┘            │                     │
+│  │                │                   │                     │
+│  │                ▼                   │                     │
+│  │         ┌─────────────┐◀──────┐    │                     │
+│  │         │ agent_node  │       │    │                     │
+│  │         └──────┬──────┘       │    │                     │
+│  │                │              │    │                     │
+│  │     ┌──────────┴─────────┐    │    │                     │
+│  │     │   should_continue  │    │    │                     │
+│  │     │   (tools called?)  │    │    │                     │
+│  │     └────┬───────────┬───┘    │    │                     │
+│  │          │           │        │    │                     │
+│  │     [continue]     [end]      │    │                     │
+│  │          │           │        │    │                     │
+│  │          ▼           ▼        │    │                     │
+│  │  ┌─────────────┐ ┌──────────┐ │    │                     │
+│  │  │ tools_node  │ │judge_node│ │    │                     │
+│  │  └───────┬─────┘ └─────┬────┘ │    │                     │
+│  │          │             │      │    │                     │
+│  │          └─────────────┘──────┘    │                     │
+│  │                        │           │                     │
+│  │              ┌─────────┴────────┐  │                     │
+│  │              │final_answer_router  │                     │
+│  │              │ (is_good_answer?)   │                     │
+│  │              └────┬─────────┬───┘  │                     │
+│  │                   │         │      │                     │
+│  │              [planning]   [end]    │                     │
+│  └───────────────────┘         │      │                     │
+│                                ▼      ▼                     │
+│                             ┌───────────┐                   │
+│                             │    END    │                   │
+│                             └───────────┘                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 *Feel free to modify or extend any section as the project evolves.*
+
+## 12. Interview Explanation Version
+
+A major pain point in academia and R&D is the heavily manual and error-prone process of conducting literature reviews across disjointed databases. Researchers often lose countless hours sifting through irrelevant papers, manually downloading PDFs, and piecing together citations. To address this, I built the AI Academic Research Assistant—a fully autonomous LangGraph-powered engine capable of executing end-to-end literature synthesis.
+
+For the architecture, I implemented a cyclic directed graph utilizing a robust state machine that transitions between intent decision-making, multi-step planning, tool execution, and an intelligent self-reflection Judge node. Rather than relying on simple procedural prompting, the system dynamically queries the CORE open-access API, downloads and parses complex PDFs using pdfplumber, and evaluates its own draft output. If the Judge node detects insufficient depth or missing inline citations, it iteratively routes back to the planner, ensuring high-fidelity outputs.
+
+The business value delivered is immediate and measurable: we slashed the turnaround time for comprehensive literature synthesis by over 70%. By automating the tedious extraction and formatting processes and replacing static research methods with a dynamic, self-correcting AI pipeline, researchers can shift their focus entirely to high-level analysis and decision-making.

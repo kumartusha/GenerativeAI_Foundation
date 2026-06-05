@@ -236,3 +236,11 @@ While the current version is highly functional, several features can be added to
 | **System Architecture** | Decoupling complex LLM tasks into discrete, debuggable steps. |
 | **Business Logic Implementation** | Prioritizing sentiment (Negative) over category for escalation routing. |
 | **AI Frameworks** | LangChain Core, LangGraph, ChatGroq. |
+
+## 12. Interview Explanation Version
+
+In modern customer service, support teams are frequently overwhelmed by high-volume, repetitive queries mixed with high-priority, emotionally charged complaints. The 'Static AI' or manual triage approach results in unacceptable latency, SLA breaches, and ultimately, customer churn, because these systems lack sentiment awareness and domain specialization. To solve this, I architected a LangGraph-powered Customer Support Triage System that acts as an intelligent Level-1 defense.
+
+Technically, I decoupled the monolithic prompt approach into a modular state machine architecture. I designed a sequential flow where the incoming query is first categorized by domain (Technical, Billing, General) and then passed to a Sentiment Analysis node. Using LangGraph's conditional routing, the graph intelligently short-circuits the flow: if a negative sentiment is detected, it instantly escalates to a human agent queue; otherwise, it dynamically routes the state to a specialized LLM handler equipped with domain-specific context for automated resolution.
+
+The resulting business value is a highly scalable, cost-efficient support pipeline. By instantly deflecting routine inquiries and reserving human bandwidth exclusively for frustrated or high-value customers, we significantly improved customer satisfaction scores, drastically reduced resolution latency, and optimized the operational overhead of the support center.

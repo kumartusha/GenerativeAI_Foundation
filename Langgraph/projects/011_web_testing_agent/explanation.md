@@ -134,6 +134,72 @@ During the architectural transition to this modular package, several critical en
    - Integrate a node that instructs Playwright to take a screenshot (`await page.screenshot()`). Feed this image into a Vision LLM (like GPT-4o) alongside the baseline image to programmatically detect visual layout breakages, CSS failures, or overlapping elements.
 2. **Autonomous CI/CD GitHub Action:**
    - Package this agent as a Dockerized GitHub Action. Whenever a Pull Request is opened, the agent automatically reads the PR description, boots up the Vercel/Netlify preview URL, dynamically writes E2E tests for the new features, executes them, and posts the Pytest report directly as a PR comment.
+3. **Advanced Assertion Parsing:**
+   - Implement an LLM node specifically dedicated to parsing DOM differences before and after an action to automatically write strong assertions without explicitly being asked.
+
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│         ┌─────────────────────────────────────┐             │
+│         │ convert_user_instruction_to_actions │             │
+│         └───────────────────┬─────────────────┘             │
+│                             │                               │
+│                             ▼                               │
+│                  ┌────────────────────┐                     │
+│                  │ get_initial_action │                     │
+│                  └──────────┬─────────┘                     │
+│                             │                               │
+│                             ▼                               │
+│                 ┌─────────────────────┐                     │
+│             ┌──▶│  get_website_state  │                     │
+│             │   └──────────┬──────────┘                     │
+│             │              │                                │
+│             │              ▼                                │
+│             │  ┌────────────────────────┐                   │
+│             │  │generate_code_for_action│                   │
+│             │  └───────────┬────────────┘                   │
+│             │              │                                │
+│             │              ▼                                │
+│             │  ┌─────────────────────────┐                  │
+│             │  │validate_generated_action│                  │
+│             │  └───────────┬─────────────┘                  │
+│             │              │                                │
+│             │   ┌──────────┴───────────┐                    │
+│             │   │  decide_next_path    │                    │
+│             │   └─┬─────────┬────────┬─┘                    │
+│             │     │         │        │                      │
+│             │     │         │        │                      │
+│             │     └─────────┘        │                      │
+│             │                        │                      │
+│             │                        ▼                      │
+│             │             ┌─────────────────────┐           │
+│             │             │ post_process_script │           │
+│             │             └──────────┬──────────┘           │
+│             │                        │                      │
+│             ▼                        ▼                      │
+│  ┌───────────────────────┐  ┌─────────────────┐             │
+│  │handle_generation_error│  │execute_test_case│             │
+│  └────────────┬──────────┘  └────────┬────────┘             │
+│               │                      │                      │
+│               │                      ▼                      │
+│               │           ┌──────────────────────┐          │
+│               │           │ generate_test_report │          │
+│               │           └──────────┬───────────┘          │
+│               │                      │                      │
+│               ▼                      ▼                      │
+│            ┌───────────────────────────────────────────┐    │
+│            │                   END                     │    │
+│            └───────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -147,3 +213,11 @@ During the architectural transition to this modular package, several critical en
 - **Autonomous Code Generation:** Programmatic AST validation of LLM outputs.
 - **Secure Sandboxing:** Utilizing `tempfile` and `subprocess` for isolated code execution.
 - **Advanced Orchestration:** Managing cyclical, stateful agent loops using LangGraph.
+
+## 12. Interview Explanation Version
+
+In modern software development, writing and maintaining End-to-End UI tests is a notorious bottleneck. Traditional automation scripts using tools like Selenium or Playwright are notoriously fragile, failing immediately when developers make minor UI tweaks like changing a CSS class or an element ID. This 'flakiness' forces QA engineers into endless cycles of manual DOM inspection and test maintenance. To solve this, I architected an Autonomous Web Testing Agent that acts as a self-healing QA engineer.
+
+Technically, I designed a cyclical LangGraph orchestration loop paired with Playwright and a high-speed ChatGroq inference engine. The true innovation is the dynamic feedback loop: the agent securely executes its currently written test script in a sandboxed environment, extracts the live, real-time HTML DOM state, and feeds it to the LLM to intelligently select the exact element for the next action. To guarantee execution safety, I implemented an Abstract Syntax Tree (AST) validation node that mathematically parses the LLM's generated Python code for syntax errors before it ever touches the browser, ensuring the agent doesn't hallucinate invalid code.
+
+The final business value delivered is the complete elimination of flaky tests and zero-boilerplate test generation. By dynamically adapting to UI changes on the fly and independently generating robust, native Pytest suites that run directly in isolated subprocesses, we massively accelerated testing velocity, bridging the gap between rapid Agile feature development and rigorous Quality Assurance.

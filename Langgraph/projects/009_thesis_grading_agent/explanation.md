@@ -198,11 +198,137 @@ We use `ChatGroq` (Qwen models) for near-instantaneous inference, allowing a lar
 3. **Plagiarism / Hallucination Check Node:**
    - *Enhancement:* Add a node that uses web search tools or vector search to verify citations and check for AI-generated or plagiarized content before grading relevance.
 
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│                   ┌───────────────────┐                     │
+│                   │  check_relevance  │                     │
+│                   └─────────┬─────────┘                     │
+│                             │                               │
+│            ┌────────────────┴────────────────┐              │
+│            │          (Score > 0.5?)         │              │
+│            └──────┬───────────────────┬──────┘              │
+│                   │                   │                     │
+│                 [Yes]                [No]                   │
+│                   │                   │                     │
+│                   ▼                   │                     │
+│                   ┌───────────────────┐                     │
+│                   │   check_grammar   │                     │
+│                   └─────────┬─────────┘                     │
+│                             │                               │
+│            ┌────────────────┴────────────────┐              │
+│            │          (Score > 0.6?)         │              │
+│            └──────┬───────────────────┬──────┘              │
+│                   │                   │                     │
+│                 [Yes]                [No]                   │
+│                   │                   │                     │
+│                   ▼                   │                     │
+│                 ┌───────────────────┐                       │
+│                 │ analyze_structure │                       │
+│                 └─────────┬─────────┘                       │
+│                           │                                 │
+│          ┌────────────────┴────────────────┐                │
+│          │          (Score > 0.7?)         │                │
+│          └──────┬───────────────────┬──────┘                │
+│                 │                   │                       │
+│               [Yes]                [No]                     │
+│                 │                   │                       │
+│                 ▼                   │                       │
+│                ┌──────────────────┐ │                       │
+│                │  evaluate_depth  │ │                       │
+│                └────────┬─────────┘ │                       │
+│                         │           │                       │
+│                         └─────┬─────┘                       │
+│                               │                             │
+│                               ▼                             │
+│                    ┌───────────────────────┐                │
+│                    │ calculate_final_score │◀───────────────┘
+│                    └──────────┬────────────┘                │
+│                               │                             │
+│                               ▼                             │
+│                         ┌───────────┐                       │
+│                         │    END    │                       │
+│                         └───────────┘                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## 8. Resume Impact Summary
 
-> **"Built an automated Thesis and Essay Grading System utilizing LangGraph and LangChain. Engineered a sequential evaluation state machine that assesses relevance, grammar, structure, and depth using LLMs. Implemented 'Early Exit' conditional routing to prevent unnecessary API calls on poor submissions, optimizing token usage and execution latency. Designed deterministic weighted score calculation and regex-based LLM output parsing to ensure consistent, objective grading at scale."**
+> **"Built an automated Thesis and Essay Grading System utilizing LangGraph and LangChain. Engineered a 1.  **Sequential State Machine**: Grading works best when criteria are checked linearly. If relevance fails, grammar doesn't matter.
+2.  **Score Thresholds**: Hardcoding threshold limits (`> 0.5`, `> 0.6`, `> 0.7`) prevented unnecessary API calls for objectively bad essays.
+3.  **Modular Evaluation**: By separating grammar, structure, and depth, the final score becomes a weighted, transparent metric rather than a black-box guess from a single LLM prompt.
+
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│                   ┌───────────────────┐                     │
+│                   │  check_relevance  │                     │
+│                   └─────────┬─────────┘                     │
+│                             │                               │
+│            ┌────────────────┴────────────────┐              │
+│            │          (Score > 0.5?)         │              │
+│            └──────┬───────────────────┬──────┘              │
+│                   │                   │                     │
+│                 [Yes]                [No]                   │
+│                   │                   │                     │
+│                   ▼                   │                     │
+│                   ┌───────────────────┐                     │
+│                   │   check_grammar   │                     │
+│                   └─────────┬─────────┘                     │
+│                             │                               │
+│            ┌────────────────┴────────────────┐              │
+│            │          (Score > 0.6?)         │              │
+│            └──────┬───────────────────┬──────┘              │
+│                   │                   │                     │
+│                 [Yes]                [No]                   │
+│                   │                   │                     │
+│                   ▼                   │                     │
+│                 ┌───────────────────┐                       │
+│                 │ analyze_structure │                       │
+│                 └─────────┬─────────┘                       │
+│                           │                                 │
+│          ┌────────────────┴────────────────┐                │
+│          │          (Score > 0.7?)         │                │
+│          └──────┬───────────────────┬──────┘                │
+│                 │                   │                       │
+│               [Yes]                [No]                     │
+│                 │                   │                       │
+│                 ▼                   │                       │
+│                ┌──────────────────┐ │                       │
+│                │  evaluate_depth  │ │                       │
+│                └────────┬─────────┘ │                       │
+│                         │           │                       │
+│                         └─────┬─────┘                       │
+│                               │                             │
+│                               ▼                             │
+│                    ┌───────────────────────┐                │
+│                    │ calculate_final_score │◀───────────────┘
+│                    └──────────┬────────────┘                │
+│                               │                             │
+│                               ▼                             │
+│                         ┌───────────┐                       │
+│                         │    END    │                       │
+│                         └───────────┘                       │
+└─────────────────────────────────────────────────────────────┘
+```put parsing to ensure consistent, objective grading at scale."**
 
 ### Key Skills Demonstrated:
 
@@ -213,3 +339,11 @@ We use `ChatGroq` (Qwen models) for near-instantaneous inference, allowing a lar
 | **State Machine Design** | Utilizing LangGraph to build a multi-stage sequential evaluation flow. |
 | **Algorithmic Scoring** | Combining deterministic mathematical weighting with probabilistic AI evaluation. |
 | **Prompt Engineering** | Structuring prompts to evaluate specific rubrics (Relevance, Depth, Structure). |
+
+## 12. Interview Explanation Version
+
+One of the major bottlenecks in academic institutions is the sheer volume of essays that human graders must manually evaluate. The manual process is not only subjective and susceptible to grader fatigue but also highly inefficient, as reviewers often waste time thoroughly reading fundamentally flawed or completely off-topic submissions. To resolve this, I built an automated Thesis Grading Agent that functions as a highly scalable, objective teaching assistant.
+
+To solve the efficiency problem, I engineered a sequential LangGraph state machine with a built-in 'Early Exit' conditional routing mechanism. Instead of pushing an entire essay through a massive, expensive LLM prompt, the system evaluates the text linearly across modular nodes (Relevance, Grammar, Structure, Depth). If an essay scores disastrously low on foundational metrics like Relevance, the LangGraph workflow mathematically short-circuits the evaluation, bypassing the expensive deeper analysis nodes and routing directly to the final score calculation.
+
+The business impact is a highly optimized, cost-efficient grading pipeline that guarantees objective consistency. By instantly assigning grades to hundreds of essays while simultaneously reducing LLM token waste on off-topic submissions, we dramatically accelerated the feedback loop for students and entirely eliminated grader burnout, allowing educators to focus their energy on personalized, high-value student interventions.

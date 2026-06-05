@@ -148,7 +148,87 @@ To evolve this into a true enterprise-grade system, the following enhancements a
 * **True Human-in-the-Loop (Webhooks)**: Implement LangGraph's `Saver` checkpointing. Instead of mocking the approval, the workflow pauses and emits a webhook to a Next.js/React frontend. A human operator clicks "Approve", which hits a dedicated `/api/v1/disaster/resume` endpoint to continue the execution graph.
 * **Geospatial & Multi-Modal Context**: Enhance the weather service to pull satellite imagery and pass the visual context to multimodal LLMs (like Llama-3-Vision or Gemini-1.5-Pro) for structural damage assessment.
 
+### LangGraph Workflow Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│                    ┌──────────────────┐                     │
+│                    │   get_weather    │                     │
+│                    └────────┬─────────┘                     │
+│                             │                               │
+│                             ▼                               │
+│               ┌───────────────────────────┐                 │
+│               │  social_media_monitoring  │                 │
+│               └─────────────┬─────────────┘                 │
+│                             │                               │
+│                             ▼                               │
+│                  ┌────────────────────┐                     │
+│                  │  analyze_disaster  │                     │
+│                  └──────────┬─────────┘                     │
+│                             │                               │
+│                             ▼                               │
+│                  ┌────────────────────┐                     │
+│                  │  assess_severity   │                     │
+│                  └──────────┬─────────┘                     │
+│                             │                               │
+│                             ▼                               │
+│                    ┌──────────────────┐                     │
+│                    │   data_logging   │                     │
+│                    └────────┬─────────┘                     │
+│                             │                               │
+│                             ▼                               │
+│                  ┌─────────────────────┐                    │
+│                  │    route_response   │                    │
+│                  └─┬─────────┬───────┬─┘                    │
+│                    │         │       │                      │
+│        [critical/high]       │       │                      │
+│                    │   [flood/storm] │                      │
+│                    │         │   [otherwise]                │
+│                    ▼         ▼       ▼                      │
+│ ┌──────────────────┐ ┌───────────────┐ ┌──────────────────┐ │
+│ │emergency_response│ │public_works...│ │civil_defense...  │ │
+│ └────────┬─────────┘ └───────┬───────┘ └─────────┬────────┘ │
+│          │                   │                   │          │
+│          │                   ▼                   ▼          │
+│          │               ┌───────────────────────┐          │
+│          │               │get_human_verification │          │
+│          │               └───────────┬───────────┘          │
+│          │                           │                      │
+│          │                           ▼                      │
+│          │              ┌────────────────────────┐          │
+│          │              │ verify_approval_router │          │
+│          │              └─────┬───────────┬──────┘          │
+│          │                    │           │                 │
+│          │              [approved]    [not_approved]        │
+│          │                    │           │                 │
+│          ▼                    ▼           ▼                 │
+│     ┌──────────────────────────┐    ┌────────────────────┐  │
+│     │     send_email_alert     │    │ handle_no_approval │  │
+│     └──────────────┬───────────┘    └─────────┬──────────┘  │
+│                    │                          │             │
+│                    ▼                          ▼             │
+│                 ┌────────────────────────────────┐          │
+│                 │               END              │          │
+│                 └────────────────────────────────┘          │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## 8. Resume Summary
 *Designed and engineered a highly scalable, monolithic REST API for an automated Weather Disaster Management system using **FastAPI** and **Python**. Orchestrated complex, cyclical decision-making workflows using **LangGraph** and **LangChain**, integrating real-time API data (OpenWeatherMap) to evaluate environmental threats. Decoupled blocking, procedural scripts into an MVC-inspired architecture (Controllers, Services, Models), drastically improving modularity. Transitioned inference logic to **Groq (Llama-3 70B)** to achieve sub-second execution speeds suitable for synchronous web APIs. Enforced strict data contracts and validation using **Pydantic**, ensuring high reliability and fault tolerance in critical automated emergency notification pipelines.*
+
+## 12. Interview Explanation Version
+
+Emergency response systems require absolute reliability, real-time processing, and robust integration across disparate services to manage extreme weather events. Traditional procedural scripts or manual alert systems are fundamentally unscalable, blocking on human input and failing under concurrent loads, which is unacceptable during critical disaster scenarios. To address this, I engineered a highly scalable Weather Disaster Management API using FastAPI and LangGraph.
+
+For the architecture, I decoupled the monolithic scripting approach into an MVC-inspired REST API. I abstracted the business logic into a LangGraph state machine that evaluates real-time OpenWeatherMap data against simulated social media context to assess disaster severity. To solve the problem of blocking terminal inputs for human verification, I implemented an asynchronous, policy-driven mock approval workflow designed for webhook integration, and utilized Pydantic for strict data contract enforcement at every boundary.
+
+The resulting business value is a resilient, enterprise-grade emergency notification pipeline. By transitioning inference to sub-second Groq models and enforcing strict API boundaries, the system is capable of instantly triaging environmental threats and autonomously dispatching critical alerts, ensuring rapid, reliable response mechanisms that can scale horizontally in production environments.

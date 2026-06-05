@@ -471,3 +471,11 @@ A **Conditional Router** evaluates the aggregate risk score. If the risk decreas
 
 **Q10: How do you manage context window limits? The state gets very large.**
 **Answer:** The `AgentState` accumulates data across iterations (e.g., `schedule_iteration`, `risks_iteration`). Over time, passing the entire history to the LLM will exhaust the context window and slow down inference. To mitigate this, I only pass the *most recent* schedule, the *most recent* allocations, and the *summarized insights* to the LLM, rather than the raw data of every single iteration since the beginning.
+
+## 12. Interview Explanation Version
+
+One of the major challenges in project management is the inefficient, manual allocation of tasks and the high risk of scheduling bottlenecks when dependencies aren't accurately mapped. Human project managers often struggle to simultaneously balance team workloads, skill sets, and complex task dependencies, leading to delayed timelines and increased project risk. To address this, I built the Project Manager Assistant—an automated orchestration pipeline that dynamically generates, schedules, and allocates project tasks while continuously evaluating risk.
+
+For the technical architecture, I implemented a self-improving LangGraph state machine. The system breaks down the problem into sequential nodes: Task Generation, Dependency Mapping, Scheduling, Allocation, and Risk Assessment. The true innovation lies in the iterative feedback loop controlled by a conditional routing mechanism. If the calculated project risk score can be improved, the graph intelligently routes the state to an Insight Generation node that critiques the current plan, then loops back to re-allocate and re-schedule tasks until it achieves an optimal, minimized risk score or hits a designated iteration budget.
+
+The business impact is a highly optimized, automated PM workflow that minimizes scheduling risks and ensures balanced workload distributions. By programmatically optimizing task-to-talent mapping and autonomously resolving complex scheduling dependencies, we dramatically accelerated project kick-offs and delivered objectively resilient project plans, freeing up human managers to focus entirely on high-level strategy.

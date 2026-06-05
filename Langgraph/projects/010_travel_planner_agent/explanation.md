@@ -38,6 +38,42 @@ The **Travel Planner Agent** utilizes a multi-step LangGraph orchestration pipel
 - **Validates Data:** Uses conditional routing to ensure a `city` was actually provided. If missing, it short-circuits to ask for clarification rather than hallucinating an itinerary.
 - **Generates Tailored Content:** Uses the extracted, validated data to prompt a specialized itinerary generation node.
 
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│                  ┌─────────────────────┐                    │
+│                  │ extract_preferences │                    │
+│                  └──────────┬──────────┘                    │
+│                             │                               │
+│              ┌──────────────┴───────────────┐               │
+│              │       route_preferences      │               │
+│              │        (valid city?)         │               │
+│              └────┬─────────────────────┬───┘               │
+│                   │                     │                   │
+│                 [No]                  [Yes]                 │
+│                   │                     │                   │
+│                   ▼                     ▼                   │
+│           ┌──────────────┐      ┌───────────────┐           │
+│           │ ask_for_city │      │build_itinerary│           │
+│           └───────┬──────┘      └───────┬───────┘           │
+│                   │                     │                   │
+│                   └──────────┬──────────┘                   │
+│                              │                              │
+│                              ▼                              │
+│                       ┌─────────────┐                       │
+│                       │     END     │                       │
+│                       └─────────────┘                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ### Impact
 - **Zero Hallucination on Missing Data:** Eliminates the risk of the LLM guessing a destination.
 - **Hyper-Personalization:** By forcing the LLM to explicitly extract a list of `interests` first, the final itinerary generation node is tightly constrained to focus *only* on those interests.
@@ -149,6 +185,42 @@ The extraction node uses basic string manipulation (`json.loads`) to parse the L
 3. **Structured Output Enforcement:**
    - *Enhancement:* Upgrade the extraction node to use OpenAI/Groq function calling (`with_structured_output`) paired with a Pydantic model to eliminate JSON parsing errors.
 
+### Architecture Diagram
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH WORKFLOW                    │
+│                                                             │
+│                      ┌──────────────┐                       │
+│                      │    START     │                       │
+│                      └──────┬───────┘                       │
+│                             │                               │
+│                             ▼                               │
+│                  ┌─────────────────────┐                    │
+│                  │ extract_preferences │                    │
+│                  └──────────┬──────────┘                    │
+│                             │                               │
+│              ┌──────────────┴───────────────┐               │
+│              │       route_preferences      │               │
+│              │        (valid city?)         │               │
+│              └────┬─────────────────────┬───┘               │
+│                   │                     │                   │
+│                 [No]                  [Yes]                 │
+│                   │                     │                   │
+│                   ▼                     ▼                   │
+│           ┌──────────────┐      ┌───────────────┐           │
+│           │ ask_for_city │      │build_itinerary│           │
+│           └───────┬──────┘      └───────┬───────┘           │
+│                   │                     │                   │
+│                   └──────────┬──────────┘                   │
+│                              │                              │
+│                              ▼                              │
+│                       ┌─────────────┐                       │
+│                       │     END     │                       │
+│                       └─────────────┘                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## 8. Resume Impact Summary
@@ -163,3 +235,11 @@ The extraction node uses basic string manipulation (`json.loads`) to parse the L
 | **Pipeline Guardrails** | Using conditional routing to halt execution if critical data (city) is missing. |
 | **Separation of Concerns** | Decoupling the "understanding" phase from the "generation" phase in LLM workflows. |
 | **Prompt Engineering** | Dynamic prompt injection for highly tailored content generation. |
+
+## 12. Interview Explanation Version
+
+A persistent flaw in generic AI chatbots when used for travel planning is their tendency to hallucinate generic itineraries or fail to capture the user's specific constraints and interests. If a user asks for a trip plan but forgets to mention the destination, standard LLMs will often confidently guess a city, leading to poor user experiences and completely useless output. To combat this 'Static AI' problem, I developed a LangGraph-powered Travel Planner Agent that strictly decouples natural language understanding from content generation.
+
+I structured the architecture to ensure programmatic control and validation. The workflow begins with an Extraction Node that forces the LLM to parse the conversational input into a strict JSON payload containing the destination city and an array of specific interests. Crucially, I implemented a conditional routing guardrail: if the extraction node detects that the 'city' is missing, the state machine explicitly short-circuits and routes to a fallback node asking the user for clarification, entirely preventing the downstream itinerary generation node from executing blindly.
+
+This architectural decision delivers immense business value by achieving zero hallucinations on missing data and enabling hyper-personalized output. By programmatically ensuring the presence of required parameters before generation, we reduced erroneous API calls and delivered highly tailored itineraries that strictly align with the user's explicit interests, drastically improving user trust and engagement.
